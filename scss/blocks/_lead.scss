@@ -1,0 +1,33 @@
+.lead {
+	&__inner {
+		background: url('../img/lead-1.jpg') left no-repeat;
+		min-height: 377px;
+		border-radius: 35px;
+	}
+
+	&__box {
+		background: url('../img/lead-waves.svg') top right no-repeat,
+			linear-gradient(96.11deg, #78aaff 2.77%, #6aa0fb 86.54%);
+		border-radius: 35px;
+		max-width: 650px;
+		width: 100%;
+		padding: 100px 30px 80px 72px;
+		margin-left: auto;
+	}
+
+	&__text {
+		font-family: 'Avenir-Next', sans-serif;
+		font-size: 26px;
+		line-height: 1.16;
+		letter-spacing: 0.0015em;
+		margin-bottom: 40px;
+		color: $white;
+
+		span {
+			font-weight: 600;
+		}
+	}
+
+	&__btn {
+	}
+}

@@ -2,6 +2,10 @@
 	max-width: 1264px;
 	margin: 0 auto;
 	padding: 0 12px;
+
+	&--lg {
+	max-width: 1360px;
+	}
 }
 
 .logo {
@@ -19,7 +23,7 @@
 		margin: 0 auto;
 	}
 	&__title {
-		font-family: 'Avenir-Next';
+		font-family: 'Avenir-Next', sans-serif;
 		font-size: 50px;
 		line-height: 1.2;
 		color: #1d3752;
@@ -55,6 +59,12 @@
 	&--orange {
 		background-color: #ffaa93;
 	}
+	&--lightorange {
+		background-color: #FDA88B;
+	}
+	&--lightgreen {
+		background-color: #A4E3DA;
+	}
 	&--green {
 		background-color: #8CD5CA;
 	}
@@ -70,8 +80,11 @@
 	&--pink {
 		background-color: #FAC7E7;
 	}
-	&--blue {
+	&--lightblue {
 		background-color: #BCEAFC;
+	}
+	&--blue {
+		background-color: #9EBEF1;
 	}
 }
 

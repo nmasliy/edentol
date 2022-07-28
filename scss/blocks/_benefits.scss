@@ -1,0 +1,33 @@
+.benefits {
+	&__inner {
+	}
+
+	&__list {
+		display: flex;
+		margin: 0 -15px;
+		padding-top: 80px;
+	}
+
+	&__item {
+		width: calc(100% / 3 - 30px);
+		margin: 0 15px;
+		background-color: #F5F8FA;
+		border-radius: 35px;
+		padding: 35px 32px 48px;
+	}
+
+	&__name {
+		font-family: 'Avenir-Next', sans-serif;
+		font-weight: 600;
+		font-size: 20px;
+		margin-top: 25px;
+		margin-bottom: 17px;
+		letter-spacing: 0.0015em;
+	}
+
+	&__text {
+		line-height: 1.16;
+		letter-spacing: 0.0015em;
+		color: rgba($text, 0.8);
+	}
+}

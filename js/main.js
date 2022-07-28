@@ -123,9 +123,42 @@ window.addEventListener('DOMContentLoaded', function () {
 			}
 		})
 	}
+
+	function initBestHover() {
+		$items = document.querySelectorAll('.best__item');
+
+		$items.forEach(item => {
+			const $hiddenBlock = item.querySelector('.best__info')
+			const blockHeight = $hiddenBlock.offsetHeight
+			let isHover = false;
+			$hiddenBlock.style.display = 'none'
+			
+			item.addEventListener('mouseenter', function() {
+				isHover = true
+				$hiddenBlock.style.height = '0'
+				$hiddenBlock.style.margin = '0'
+				$hiddenBlock.style.display = ''
+				setTimeout(function() {
+					$hiddenBlock.style.height = blockHeight + 'px'
+					$hiddenBlock.style.margin = ''
+				}, 1)
+			})
+			item.addEventListener('mouseleave', function() {
+					isHover = false;
+					$hiddenBlock.style.height = '0'
+					$hiddenBlock.style.margin = '0'
+					setTimeout(function () {
+						if (!isHover) {
+							$hiddenBlock.style.display = 'none'
+						}
+					}, 300)
+			})
+		})
+	}
 	
 	initMenu()
 	initCountdown()
 	initHeroSlider()
 	initPlayer()
+	initBestHover()
 })
