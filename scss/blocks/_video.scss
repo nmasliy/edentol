@@ -1,0 +1,49 @@
+.video {
+	position: relative;
+	&::before {
+		position: absolute;
+		content: "";
+		left: 0;
+		// width: 1889px
+		width: 100%;
+		height: 493px;
+		bottom: -200px;
+		z-index: -1;
+		background: url('../img/wave-1.svg') center repeat-x ;
+	}
+	&__inner {
+	}
+
+	&__box {
+		margin-top: 80px;
+		text-align: center;
+	}
+	&__wrapper {
+		position: relative;
+		display: inline-block;
+		&::before {
+			position: absolute;
+			content: '';
+			width: 100%;
+			height: 100%;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			background: url('../img/player-icon.svg') center / 72px no-repeat,
+				linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+			border-radius: 35px;
+			transition: opacity .3s;
+			opacity: 0;
+		}
+		&.overlay {
+			&::before {
+				opacity: 1;
+			}
+		}
+		video {
+			display: flex;
+			border-radius: 35px;
+			height: auto;
+		}
+	}
+}

@@ -1,0 +1,19 @@
+.overflow-hidden {
+	overflow: hidden;
+
+	body {
+		overflow: hidden;
+	}
+}
+
+// Block scroll for Safari
+.block-scroll {
+	overflow: hidden;
+	height: 100%;
+
+	body {
+		overflow: hidden;
+		height: 100%;
+	}
+}
+// /Block scroll for Safari

@@ -1,0 +1,40 @@
+@include font("Avenir-Next", "AvenirNextCyr-Light", "300", "normal");
+@include font("Avenir-Next", "AvenirNextCyr-Regular", "400", "normal");
+@include font("Avenir-Next", "AvenirNextCyr-Medium", "500", "normal");
+@include font("Avenir-Next", "AvenirNextCyr-Demi", "600", "normal");
+@include font("Roboto", "Roboto-Light", "300", "normal");
+@include font("Roboto", "Roboto-Regular", "400", "normal");
+@include font("Roboto", "Roboto-Medium", "500", "normal");
+@include font("Inter", "Inter-Light", "300", "normal");
+@include font("Inter", "Inter-Regular", "400", "normal");
+
+body {
+	min-width: 320px;
+	font-family: $font;
+	font-size: 16px;
+	line-height: 1.1;
+	color: $text;
+	background-color: $white;
+}
+
+input,
+textarea {
+	display: inline-block;
+	background-color: $white;
+	border-radius: 10px;
+	padding: 15px 30px;
+}
+
+textarea {
+	min-height: 150px;
+}
+
+button {
+	cursor: pointer;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
+}
