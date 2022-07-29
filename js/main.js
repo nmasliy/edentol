@@ -155,10 +155,22 @@ window.addEventListener('DOMContentLoaded', function () {
 			})
 		})
 	}
+
+	function initSystem() {
+		const $itemsWrapper = document.querySelector('.system__elements');
+
+		$itemsWrapper.addEventListener('click', function (e) {
+			const $item = e.target.closest('.system__element')
+			if ($item) {
+				$item.classList.toggle('active')
+			}
+		})
+	}
 	
 	initMenu()
 	initCountdown()
 	initHeroSlider()
 	initPlayer()
 	initBestHover()
+	initSystem()
 })
