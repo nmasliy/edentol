@@ -4,7 +4,7 @@
 	padding: 0 12px;
 
 	&--lg {
-	max-width: 1360px;
+		max-width: 1360px;
 	}
 }
 
@@ -19,7 +19,6 @@
 	padding: 64px 0;
 	&__head {
 		text-align: center;
-		max-width: 700px;
 		margin: 0 auto;
 	}
 	&__title {
@@ -59,40 +58,40 @@
 		background-color: #ffaa93;
 	}
 	&--lightorange {
-		background-color: #FDA88B;
+		background-color: #fda88b;
 	}
 	&--lightgreen {
-		background-color: #A4E3DA;
+		background-color: #a4e3da;
 	}
 	&--green {
-		background-color: #8CD5CA;
+		background-color: #8cd5ca;
 	}
 	&--purple {
-		background-color: #D8C8F8;
+		background-color: #d8c8f8;
 	}
 	&--lightred {
-		background-color: rgba(#F88C8C, .6);
+		background-color: rgba(#f88c8c, 0.6);
 	}
 	&--darkpurple {
-		background-color: #B9B8FD;
+		background-color: #b9b8fd;
 	}
 	&--pink {
-		background-color: #FAC7E7;
+		background-color: #fac7e7;
 	}
 	&--lightblue {
-		background-color: #BCEAFC;
+		background-color: #bceafc;
 	}
 	&--blue {
-		background-color: #9EBEF1;
+		background-color: #9ebef1;
 	}
 	&--skin {
-		background-color: #FFD7C0;
+		background-color: #ffd7c0;
 	}
 	&--grass {
-		background-color: #C7E7C4;
+		background-color: #c7e7c4;
 	}
 	&--darkestpurple {
-		background-color: #C3B4D8;
+		background-color: #c3b4d8;
 	}
 }
 
@@ -118,9 +117,58 @@
 	@media screen and (min-width: $mobileBreakpoint) {
 		transition: 0.35s ease;
 		&:hover {
-			background-color: $white;
-			color: $accent;
-			border-color: $accent;
+			background-color: #2ec28d;
 		}
+	}
+}
+
+.form {
+	&__title {
+		font-size: 24px;
+		line-height: 1.1;
+		letter-spacing: 0.0025em;
+		margin-bottom: 32px;
+	}
+
+	&__item {
+		position: relative;
+		margin-bottom: 20px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__input {
+		display: block;
+		padding: 17px 32px 17px 76px;
+		background-color: #f5f8fa;
+		border-radius: 8px;
+		width: 100%;
+		border: 1px solid transparent;
+		transition: .2s;
+		&.invalid {
+			color: $orange;
+			border-color: $orange;
+			& + .form__icon {
+				path {
+					fill: $orange;
+				}
+			}
+		}
+	}
+
+	&__icon {
+		position: absolute;
+		left: 40px;
+		top: 50%;
+		transform: translateY(-50%);
+		pointer-events: none;
+		path {
+			transition: .2s;
+		}
+	}
+
+	&__btn {
+		width: 100%;
 	}
 }

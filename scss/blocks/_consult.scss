@@ -1,0 +1,69 @@
+.consult {
+	margin-top: 72px;
+	margin-bottom: 50px;
+
+	&__box {
+		background: url('../img/wave-3.svg') left -5px top -5px no-repeat;
+		background-color: #74a7fe;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 71px 43px 84px;
+		border-radius: 35px 35px 0px 0px;
+	}
+
+	&__title {
+		color: $white;
+		margin-bottom: 24px;
+	}
+
+	&__subtitle {
+		font-size: 24px;
+		line-height: 1.4;
+		color: $white;
+		span {
+			font-weight: 500;
+		}
+	}
+
+	&__info {
+		max-width: 486px;
+		padding-bottom: 50px;
+	}
+
+	&__form {
+		max-width: 440px;
+		padding: 45px 40px;
+		width: 100%;
+		background-color: $white;
+		border-radius: 35px;
+		margin-right: 105px;
+	}
+}
+
+.contacts {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: $white;
+	border-radius: 0px 0px 35px 35px;
+	padding: 42px 50px;
+	border: 3px solid #74A7FE;
+
+	&__item {
+		display: flex;
+		align-items: center;
+	}
+
+	&__icon {
+		flex-shrink: 0;
+	}
+
+	&__text {
+		margin-left: 18px;
+		font-weight: 500;
+		font-size: 20px;
+		letter-spacing: 0.0015em;
+		color: #5f6c8b;
+	}
+}

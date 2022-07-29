@@ -166,6 +166,31 @@ window.addEventListener('DOMContentLoaded', function () {
 			}
 		})
 	}
+
+	function initFormValidate() {
+		const $forms= document.querySelectorAll('.form')
+
+		$forms.forEach(form => {
+			const $inputs = form.querySelectorAll('.form__input')
+
+			$inputs.forEach(input => {
+				input.addEventListener('blur', function() {
+					if (!input.value) {
+						input.classList.add('invalid')
+					} else {
+						input.classList.remove('invalid')
+					}
+				})
+				input.addEventListener('input', function() {
+					if (!input.value) {
+						input.classList.add('invalid')
+					} else {
+						input.classList.remove('invalid')
+					}
+				})
+			})
+		})
+	}
 	
 	initMenu()
 	initCountdown()
@@ -173,4 +198,5 @@ window.addEventListener('DOMContentLoaded', function () {
 	initPlayer()
 	initBestHover()
 	initSystem()
+	initFormValidate()
 })

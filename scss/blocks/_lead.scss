@@ -1,7 +1,11 @@
 .lead {
+	&--2 {
+		.lead__inner {
+			background: url('../img/lead-2.jpg') left no-repeat;
+		}
+	}
 	&__inner {
 		background: url('../img/lead-1.jpg') left no-repeat;
-		min-height: 377px;
 		border-radius: 35px;
 	}
 

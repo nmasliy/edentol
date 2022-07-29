@@ -1,0 +1,138 @@
+.coop {
+	&__content {
+		padding-top: 80px;
+	}
+
+	&__row {
+		display: flex;
+		margin-bottom: 118px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__item {
+		position: relative;
+		display: flex;
+		margin-left: 146px;
+
+		&::before {
+			position: absolute;
+			content: '';
+		}
+		&--1 {
+			margin-left: 0;
+			&::before {
+				background: url('../img/coop-line-1.svg') center no-repeat;
+				width: 110px;
+				height: 127px;
+				top: -141px;
+				left: 24px;
+			}
+		}
+		&--2 {
+			margin-left: 148px;
+			top: 6px;
+			.coop__text {
+				margin-left: 15px;
+			}
+			&::before {
+				background: url('../img/coop-line-2.svg') center no-repeat;
+				width: 280px;
+				height: 88px;
+				bottom: -100px;
+				left: 23px;
+			}
+		}
+		&--3 {
+			top: -8px;
+			&::before {
+				background: url('../img/coop-line-3.svg') center no-repeat;
+				width: 88px;
+				height: 117px;
+				top: -131px;
+				left: 21px;
+			}
+		}
+		&--4 {
+			margin-left: 130px;
+			top: 6px;
+			.coop__text {
+				margin-left: 20px;
+			}
+			&::before {
+				background: url('../img/coop-line-4.svg') center no-repeat;
+				width: 281px;
+				height: 94px;
+				bottom: -108px;
+				left: 24px;
+			}
+		}
+		&--5 {
+			margin-left: 115px;
+			.coop__text {
+				margin-left: 20px;
+			}
+			&::before {
+				background: url('../img/coop-line-5.svg') center no-repeat;
+				width: 63px;
+				height: 126px;
+				left: 5px;
+				top: -140px;
+			}
+		}
+		&--6 {
+			margin-left: 100px;
+			top: 3px;
+			.coop__text {
+				margin-left: 16px;
+			}
+			margin-left: 80px;
+		}
+	}
+
+	&__num {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		width: 50px;
+		height: 50px;
+		font-weight: 500;
+		font-size: 24px;
+		background-color: #d5ccdc;
+		flex-shrink: 0;
+		margin-top: 2px;
+		&--1 {
+			color: rgba(#73528f, 0.8);
+		}
+		&--2 {
+			color: rgba(#e15d79, 0.8);
+			background-color: #f0cbd4;
+		}
+		&--3 {
+			color: rgba(#c79202, 0.8);
+			background-color: #fdedb6;
+		}
+		&--4 {
+			color: rgba(#5b7fbd, 0.8);
+			background-color: rgba(91, 127, 189, 0.37);
+		}
+		&--5 {
+			color: rgba(#fe6232, 0.8);
+			background-color: rgba(254, 98, 50, 0.46);
+		}
+		&--6 {
+			color: rgba(#21b39c, 0.8);
+			background-color: #bdf0e8;
+		}
+	}
+
+	&__text {
+		margin-left: 10px;
+		letter-spacing: 0.0015em;
+		color: rgba($text, 0.8);
+		max-width: 244px;
+	}
+}
