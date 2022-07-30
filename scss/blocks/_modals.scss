@@ -25,20 +25,55 @@
 		height: 100%;
 		background-color: $white;
 		border-radius: 35px;
-		padding: 25px;
+		padding: 40px 35px;
 		position: relative;
 	}
 	&__content {
 		margin: 0 auto;
 	}
-
+	&__title {
+		margin-bottom: 32px;
+		text-align: center;
+		font-weight: 500;
+		font-size: 26px;
+		line-height: 1.16;
+		letter-spacing: 0.0015em;
+		color: $main;
+	}
 	&__close {
 		padding: 0;
 		position: absolute;
-		right: 14px;
-		top: 14px;
+		right: 22px;
+		top: 22px;
 		border: none;
 		background: 0;
+	}
+}
+
+.modal-thanks {
+	.modal__inner {
+		padding: 150px 40px;
+		background: linear-gradient(
+			293.42deg,
+			#d3e7ff 66.73%,
+			#d3e7ff 66.73%,
+			#e1f8ff 99.24%
+		);
+	}
+	&__title {
+		font-weight: 500;
+		font-size: 60px;
+		line-height: 1.16;
+		letter-spacing: 0.0015em;
+		color: $main;
+		margin-bottom: 24px;
+	}
+	&__subtitle {
+		font-size: 26px;
+		line-height: 1.16;
+		letter-spacing: 0.0015em;
+		color: $main;
+		margin-bottom: 40px;
 	}
 }
 

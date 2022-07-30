@@ -1,5 +1,5 @@
 .hero {
-	background: linear-gradient(
+	background: url('../img/hero-bg.png') right bottom -55px no-repeat, linear-gradient(
 		292.36deg,
 		#d3e7ff 40.11%,
 		#d3e7ff 40.11%,
@@ -48,14 +48,8 @@
 		}
 	}
 
-	&__timer {
-	}
-
 	&__buttons {
 		display: flex;
-	}
-
-	&__btn {
 	}
 
 	&__play {
