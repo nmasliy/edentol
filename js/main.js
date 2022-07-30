@@ -48,6 +48,8 @@ window.addEventListener('DOMContentLoaded', function () {
 	}
 
 	function initCountdown() {
+		const $timer = document.querySelector('#timer')
+
 		function getTimeRemaining(endtime) {
 			var t = Date.parse(endtime) - Date.parse(new Date())
 			var seconds = Math.floor((t / 1000) % 60)
@@ -63,8 +65,7 @@ window.addEventListener('DOMContentLoaded', function () {
 			}
 		}
 
-		function initializeClock(id, endtime) {
-			var clock = document.getElementById(id)
+		function initializeClock(endtime) {
 			const $days = document.querySelector('#timer-days')
 			const $hours = document.querySelector('#timer-hours')
 			const $minutes = document.querySelector('#timer-minutes')
@@ -76,7 +77,7 @@ window.addEventListener('DOMContentLoaded', function () {
 				if (t.total <= 0) {
 					clearInterval(timeinterval)
 					var deadline = new Date(Date.parse(endtime) + 7 * 24 * 60 * 60 * 1000)
-					initializeClock('clockdiv', deadline)
+					initializeClock(deadline)
 				}
 
 				$days.innerHTML = t.days
@@ -89,8 +90,8 @@ window.addEventListener('DOMContentLoaded', function () {
 			var timeinterval = setInterval(updateClock, 1000)
 		}
 
-		var deadline = 'July 30 2022 20:00:00 GMT+0300'
-		initializeClock('clockdiv', deadline)
+		var deadline = $timer.dataset.date
+		initializeClock(deadline)
 	}
 
 	function initHeroSlider() {
@@ -125,39 +126,39 @@ window.addEventListener('DOMContentLoaded', function () {
 	}
 
 	function initBestHover() {
-		$items = document.querySelectorAll('.best__item');
+		$items = document.querySelectorAll('.best__item')
 
 		$items.forEach(item => {
 			const $hiddenBlock = item.querySelector('.best__info')
 			const blockHeight = $hiddenBlock.offsetHeight
-			let isHover = false;
+			let isHover = false
 			$hiddenBlock.style.display = 'none'
-			
-			item.addEventListener('mouseenter', function() {
+
+			item.addEventListener('mouseenter', function () {
 				isHover = true
 				$hiddenBlock.style.height = '0'
 				$hiddenBlock.style.margin = '0'
 				$hiddenBlock.style.display = ''
-				setTimeout(function() {
+				setTimeout(function () {
 					$hiddenBlock.style.height = blockHeight + 'px'
 					$hiddenBlock.style.margin = ''
 				}, 1)
 			})
-			item.addEventListener('mouseleave', function() {
-					isHover = false;
-					$hiddenBlock.style.height = '0'
-					$hiddenBlock.style.margin = '0'
-					setTimeout(function () {
-						if (!isHover) {
-							$hiddenBlock.style.display = 'none'
-						}
-					}, 300)
+			item.addEventListener('mouseleave', function () {
+				isHover = false
+				$hiddenBlock.style.height = '0'
+				$hiddenBlock.style.margin = '0'
+				setTimeout(function () {
+					if (!isHover) {
+						$hiddenBlock.style.display = 'none'
+					}
+				}, 300)
 			})
 		})
 	}
 
 	function initSystem() {
-		const $itemsWrapper = document.querySelector('.system__elements');
+		const $itemsWrapper = document.querySelector('.system__elements')
 
 		$itemsWrapper.addEventListener('click', function (e) {
 			const $item = e.target.closest('.system__element')
@@ -168,20 +169,20 @@ window.addEventListener('DOMContentLoaded', function () {
 	}
 
 	function initFormValidate() {
-		const $forms= document.querySelectorAll('.form')
+		const $forms = document.querySelectorAll('.form')
 
 		$forms.forEach(form => {
 			const $inputs = form.querySelectorAll('.form__input')
 
 			$inputs.forEach(input => {
-				input.addEventListener('blur', function() {
+				input.addEventListener('blur', function () {
 					if (!input.value) {
 						input.classList.add('invalid')
 					} else {
 						input.classList.remove('invalid')
 					}
 				})
-				input.addEventListener('input', function() {
+				input.addEventListener('input', function () {
 					if (!input.value) {
 						input.classList.add('invalid')
 					} else {
@@ -191,7 +192,7 @@ window.addEventListener('DOMContentLoaded', function () {
 			})
 		})
 	}
-	
+
 	function initModals() {
 		const $modals = document.querySelectorAll('.modal')
 		const $modalsTriggers = document.querySelectorAll(
@@ -218,7 +219,7 @@ window.addEventListener('DOMContentLoaded', function () {
 			})
 		}
 	}
-	
+
 	initMenu()
 	initModals()
 	initCountdown()
