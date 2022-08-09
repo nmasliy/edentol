@@ -144,6 +144,14 @@ window.addEventListener('DOMContentLoaded', function () {
 		})
 	}
 
+	function initPhoneMask() {
+		const phoneMask = IMask(
+			document.querySelector('.form__phone'), {
+				mask: '+{7}(000)000-00-00'
+		});
+		// form__phone
+	}
+
 	function initBestHover() {
 		$items = document.querySelectorAll('.best__item')
 
@@ -248,4 +256,5 @@ window.addEventListener('DOMContentLoaded', function () {
 	initBestHover()
 	initSystem()
 	initFormValidate()
+	initPhoneMask()
 })
