@@ -2,14 +2,6 @@ $menuTransition: 0.45s ease-in-out;
 
 .header {
 	padding: 24px 0;
-	// position: fixed;
-	// left: 0;
-	// width: 100%;
-	// top: 0;
-	// z-index: 22;
-	// padding: 20px;
-	// background-color: #fff;
-	// box-shadow: 0px 6px 16px rgba(14, 26, 40, 0.1);
 
 	&__inner {
 		display: flex;
@@ -54,45 +46,32 @@ $menuTransition: 0.45s ease-in-out;
 		}
 	}
 
-	&__logo {
-	}
-
 	&__navigation {
-		margin: 0 74px;
-	}
-
-	&__languages {
-		font-family: 'Inter', sans-serif;
-		font-weight: 300;
+		margin: 0 auto;
+		line-height: 1.16;
 		font-size: 18px;
-		line-height: 1.2;
-		text-transform: uppercase;
-		color: #93A8DB;
-		ul {
-			display: flex;
-		}
-		li {
-			& + li {
-				border-left: 1px solid #284C71;
-				padding-left: 6px;
-				margin-left: 6px;
-			}
-			&.active {
-				color: $text;
-				font-weight: 400;
-			}
-		}
+		color: rgba($main, 0.8);
 	}
 
 	&__phone {
-		display: inline-block;
-		padding-left: 25px;
+		display: flex;
+		align-items: center;
 		font-size: 20px;
 		font-weight: 500;
-		letter-spacing: 0.005em;
-		background: url('../img/phone-icon.svg') left no-repeat;
 		position: relative;
-		margin-left: 32px;
+		&::before {
+			content: "";
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			background: url("../img/header-phone-icon.svg") center no-repeat;
+			background-color: $white;
+			margin-right: 12px;
+			flex-shrink: 0;
+		}
 	}
 
 	&__btn {
@@ -140,7 +119,7 @@ $menuTransition: 0.45s ease-in-out;
 }
 
 .navigation {
-	color: rgba($main, .8);
+	color: rgba($main, 0.8);
 	&__list {
 		display: flex;
 		align-items: center;

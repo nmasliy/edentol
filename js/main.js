@@ -48,54 +48,73 @@ window.addEventListener('DOMContentLoaded', function () {
 	}
 
 	function initCountdown() {
-		const $timer = document.querySelector('#timer')
+		const $timers = document.querySelectorAll('.timer')
 
-		function getTimeRemaining(endtime) {
-			var t = Date.parse(endtime) - Date.parse(new Date())
-			var seconds = Math.floor((t / 1000) % 60)
-			var minutes = Math.floor((t / 1000 / 60) % 60)
-			var hours = Math.floor((t / (1000 * 60 * 60)) % 24)
-			var days = Math.floor(t / (1000 * 60 * 60 * 24))
-			return {
-				total: t,
-				days: days,
-				hours: hours,
-				minutes: minutes,
-				seconds: seconds,
-			}
-		}
-
-		function initializeClock(endtime) {
-			const $days = document.querySelector('#timer-days')
-			const $hours = document.querySelector('#timer-hours')
-			const $minutes = document.querySelector('#timer-minutes')
-			const $seconds = document.querySelector('#timer-seconds')
-
-			function updateClock() {
-				var t = getTimeRemaining(endtime)
-
-				if (t.total <= 0) {
-					clearInterval(timeinterval)
-					var deadline = new Date(Date.parse(endtime) + 7 * 24 * 60 * 60 * 1000)
-					initializeClock(deadline)
+		$timers.forEach($timer => {
+			function getTimeRemaining(endtime) {
+				var t = Date.parse(endtime) - Date.parse(new Date())
+				var seconds = Math.floor((t / 1000) % 60)
+				var minutes = Math.floor((t / 1000 / 60) % 60)
+				var hours = Math.floor((t / (1000 * 60 * 60)) % 24)
+				var days = Math.floor(t / (1000 * 60 * 60 * 24))
+				return {
+					total: t,
+					days: days,
+					hours: hours,
+					minutes: minutes,
+					seconds: seconds,
 				}
-
-				$days.innerHTML = t.days
-				$hours.innerHTML = ('0' + t.hours).slice(-2)
-				$minutes.innerHTML = ('0' + t.minutes).slice(-2)
-				$seconds.innerHTML = ('0' + t.seconds).slice(-2)
 			}
+	
+			function initializeClock(endtime) {
+				const $days = $timer.querySelector('.timer__num--days span')
+				// const $hours = document.querySelector('#timer-hours')
+				// const $minutes = document.querySelector('#timer-minutes')
+				// const $seconds = document.querySelector('#timer-seconds')
+	
+				function updateClock() {
+					var t = getTimeRemaining(endtime)
+	
+					if (t.total <= 0) {
+						clearInterval(timeinterval)
+						var deadline = new Date(Date.parse(endtime) + 7 * 24 * 60 * 60 * 1000)
+						initializeClock(deadline)
+					}
+	
+					$days.innerHTML = t.days
+					// $hours.innerHTML = ('0' + t.hours).slice(-2)
+					// $minutes.innerHTML = ('0' + t.minutes).slice(-2)
+					// $seconds.innerHTML = ('0' + t.seconds).slice(-2)
+				}
+	
+				updateClock()
+				var timeinterval = setInterval(updateClock, 1000)
+			}
+	
+			var deadline = $timer.dataset.date
+			initializeClock(deadline)
+		})
 
-			updateClock()
-			var timeinterval = setInterval(updateClock, 1000)
-		}
-
-		var deadline = $timer.dataset.date
-		initializeClock(deadline)
 	}
 
 	function initHeroSlider() {
 		const swiper = new Swiper('.hero__slider', {
+			initialSlide: 1,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		})
+	}
+
+	function initCoopSlider() {
+		const swiper = new Swiper('.coop__slider', {
+			slidesPerView: 'auto',
+			spaceBetween: 30,
 			pagination: {
 				el: '.swiper-pagination',
 				clickable: true,
@@ -220,10 +239,11 @@ window.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
-	initMenu()
+	// initMenu()
 	initModals()
 	initCountdown()
 	initHeroSlider()
+	initCoopSlider()
 	initPlayer()
 	initBestHover()
 	initSystem()

@@ -1,37 +1,38 @@
 .lead {
 	&--2 {
 		.lead__inner {
-			background: url('../img/lead-2.jpg') left no-repeat;
+			background: url("../img/lead-2.jpg") left no-repeat;
 		}
 	}
 	&__inner {
-		background: url('../img/lead-1.jpg') left no-repeat;
+		background: url("../img/lead-1.jpg") left no-repeat;
 		border-radius: 35px;
 	}
 
 	&__box {
-		background: url('../img/lead-waves.svg') top right no-repeat,
-			linear-gradient(96.11deg, #78aaff 2.77%, #6aa0fb 86.54%);
-		border-radius: 35px;
+		background: url("../img/lead-waves.svg") top right no-repeat,
+			linear-gradient(293.42deg, #d3e7ff 66.73%, #d3e7ff 66.73%, #e1f8ff 99.24%);
+		border-radius: 0px 35px 35px 0px;
 		max-width: 650px;
 		width: 100%;
 		padding: 100px 30px 80px 72px;
 		margin-left: auto;
 	}
 
-	&__text {
-		font-family: 'Avenir-Next', sans-serif;
+	&__title {
 		font-size: 26px;
-		line-height: 1.16;
+		font-weight: 500;
 		letter-spacing: 0.0015em;
 		margin-bottom: 40px;
-		color: $white;
-
-		span {
-			font-weight: 600;
-		}
+		color: $main;
 	}
 
-	&__btn {
+	&__subtitle {
+		font-weight: 300;
+		font-size: 24px;
+		line-height: 1.16;
+		letter-spacing: 0.0015em;
+		margin-bottom: 15px;
+		color: $text;
 	}
 }

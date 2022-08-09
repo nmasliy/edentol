@@ -17,8 +17,7 @@
 	}
 
 	&__name {
-		font-family: 'Avenir-Next', sans-serif;
-		font-weight: 600;
+		font-weight: 500;
 		font-size: 20px;
 		margin-top: 25px;
 		margin-bottom: 17px;
@@ -26,8 +25,7 @@
 	}
 
 	&__text {
-		line-height: 1.16;
-		letter-spacing: 0.0015em;
+		line-height: 1.4;
 		color: rgba($text, 0.8);
 	}
 }

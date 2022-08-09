@@ -1,18 +1,15 @@
-@include font("Avenir-Next", "AvenirNextCyr-Light", "300", "normal");
-@include font("Avenir-Next", "AvenirNextCyr-Regular", "400", "normal");
-@include font("Avenir-Next", "AvenirNextCyr-Medium", "500", "normal");
-@include font("Avenir-Next", "AvenirNextCyr-Demi", "600", "normal");
+@include font("Rubik", "Rubik-Light", "300", "normal");
+@include font("Rubik", "Rubik-Regular", "400", "normal");
+@include font("Rubik", "Rubik-Medium", "500", "normal");
 @include font("Roboto", "Roboto-Light", "300", "normal");
 @include font("Roboto", "Roboto-Regular", "400", "normal");
 @include font("Roboto", "Roboto-Medium", "500", "normal");
-@include font("Inter", "Inter-Light", "300", "normal");
-@include font("Inter", "Inter-Regular", "400", "normal");
 
 body {
 	min-width: 320px;
-	font-family: $font;
-	font-size: 16px;
-	line-height: 1.1;
+	font-family: 'Rubik', sans-serif;
+	font-size: 15px;
+	line-height: 1.4;
 	color: $text;
 	background-color: $white;
 }

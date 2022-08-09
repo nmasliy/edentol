@@ -1,25 +1,26 @@
 .about {
-	&__inner {
-	}
-
+	background-color: #F5F8FA;
 	&__content {
-		min-height: 1000px;
+		min-height: 800px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		position: relative;
-		margin-top: 80px;
+		margin-top: 60px;
 	}
 
 	&__img {
-		position: relative;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 		text-align: center;
 		&::before {
 			position: absolute;
 			content: '';
-			width: 808px;
-			height: 521px;
+			width: 593px;
+			height:537px;
 			left: calc(50% + 4px);
 			top: calc(50% - 10px);
 			transform: translate(-50%, -50%);
@@ -41,56 +42,25 @@
 	}
 
 	&__list {
+		display: grid;
+		grid-template-columns: 1.3fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+		gap: 36px 577px;
 	}
-
+	
 	&__item {
 		max-width: 330px;
-		text-align: center;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		position: absolute;
-
-		&--1 {
-			left: 54px;
-			bottom: 190px;
-		}
-		&--2 {
-			left: 10px;
-			top: 180px;
-		}
-		&--3 {
-			left: 50%;
-			transform: translateX(-50%);
-			top: 0;
-		}
-		&--4 {
-			right: 10px;
-			top: 180px;
-		}
-		&--5 {
-			right: 53px;
-			bottom: 195px;
-		}
-		&--6 {
-			left: 50%;
-			transform: translateX(-50%);
-			bottom: 0;
-		}
 	}
 
 	&__name {
-		margin-top: 24px;
+		line-height: 1.4;
+		margin-top: 16px;
 		margin-bottom: 21px;
-		font-family: 'Avenir-Next', sans-serif;
-		font-weight: 600;
+		font-weight: 500;
 		font-size: 20px;
-		letter-spacing: 0.0015em;
 	}
 
 	&__info {
-		letter-spacing: 0.0015em;
-		color: #5f6c8b;
-		line-height: 1.15;
+		line-height: 1.4;
 	}
 }

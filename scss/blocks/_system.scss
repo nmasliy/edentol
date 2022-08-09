@@ -28,7 +28,7 @@
 		display: flex;
 		align-items: center;
 		position: absolute;
-		min-height: 40px;
+		min-height: 45px;
 
 		&.active {
 			.system__element-btn {
@@ -40,32 +40,24 @@
 		}
 
 		&--1 {
-			top: 23px;
-			left: 164px;
+			top: 36px;
+			left: 230px;
 		}
 		&--2 {
-			top: 256px;
-			left: 128px;
+			top: 262px;
+			left: 170px;
 		}
 		&--3 {
-			top: 303px;
-			left: 200px;
+			bottom: 116px;
+			left: 218px;
 		}
 		&--4 {
-			bottom: 190px;
-			left: 191px;
+			bottom: 36px;
+			left: 163px;
 		}
 		&--5 {
-			bottom: 94px;
-			left: 152px;
-		}
-		&--6 {
-			bottom: 41px;
-			left: 174px;
-		}
-		&--7 {
-			bottom: -6px;
-			left: 115px;
+			bottom: 37px;
+			left: 90px;
 		}
 	}
 
@@ -144,11 +136,9 @@
 
 		li {
 			margin-bottom: 40px;
-			font-size: 18px;
-			letter-spacing: 0.005em;
-			color: rgba($text, 0.8);
 			padding-left: 50px;
 			position: relative;
+			max-width: 450px;
 			&::before {
 				position: absolute;
 				content: '';

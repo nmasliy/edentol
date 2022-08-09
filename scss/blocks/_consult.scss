@@ -3,24 +3,25 @@
 	margin-bottom: 50px;
 
 	&__box {
-		background: url('../img/wave-3.svg') left -5px top -5px no-repeat;
-		background-color: #74a7fe;
+		background: url("../img/wave-3.svg") left -5px top -5px no-repeat,
+			linear-gradient(293.42deg, #d3e7ff 66.73%, #d3e7ff 66.73%, #e1f8ff 99.24%);
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 71px 43px 84px;
 		border-radius: 35px 35px 0px 0px;
+		border: 3px solid #c9d5f4;
+		border-bottom: none;
 	}
 
 	&__title {
-		color: $white;
 		margin-bottom: 24px;
+		color: $main;
 	}
 
 	&__subtitle {
 		font-size: 24px;
 		line-height: 1.4;
-		color: $white;
 		span {
 			font-weight: 500;
 		}
@@ -32,6 +33,7 @@
 	}
 
 	&__form {
+		font-family: "Roboto", sans-serif;
 		max-width: 440px;
 		padding: 45px 40px;
 		width: 100%;
@@ -45,10 +47,17 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	gap: 12px 24px;
+	font-family: "Roboto", sans-serif;
 	background-color: $white;
 	border-radius: 0px 0px 35px 35px;
 	padding: 42px 50px;
-	border: 3px solid #74A7FE;
+	border: 3px solid #c9d5f4;
+	border-top: none;
+	&__col {
+		display: flex;
+		gap: 12px 64px;
+	}
 
 	&__item {
 		display: flex;
@@ -56,14 +65,24 @@
 	}
 
 	&__icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: linear-gradient(
+			293.42deg,
+			#d3e7ff 66.73%,
+			#d3e7ff 66.73%,
+			#e1f8ff 99.24%
+		);
+		border-radius: 50%;
 		flex-shrink: 0;
+		width: 45px;
+		height: 45px;
 	}
 
 	&__text {
-		margin-left: 18px;
-		font-weight: 500;
+		margin-left: 9px;
 		font-size: 20px;
 		letter-spacing: 0.0015em;
-		color: #5f6c8b;
 	}
 }
