@@ -43,22 +43,28 @@
 	&__close {
 		padding: 0;
 		position: absolute;
-		right: 22px;
-		top: 22px;
+		right: 12px;
+		top: 12px;
 		border: none;
 		background: 0;
 	}
 }
 
 .modal-thanks {
-	.modal__inner {
-		padding: 150px 40px;
-		background: linear-gradient(
-			293.42deg,
-			#d3e7ff 66.73%,
-			#d3e7ff 66.73%,
-			#e1f8ff 99.24%
-		);
+	.modal {
+		&__container {
+			max-width: 645px;
+		}
+		&__inner {
+			padding: 80px 48px;
+			background: url("../img/thanks-bg.svg") center / cover no-repeat,
+				linear-gradient(
+					293.42deg,
+					#d3e7ff 66.73%,
+					#d3e7ff 66.73%,
+					#e1f8ff 99.24%
+				);
+		}
 	}
 	&__title {
 		font-weight: 500;
@@ -128,18 +134,18 @@
 	display: block;
 }
 
-.micromodal-slide[aria-hidden='false'] .modal__overlay {
+.micromodal-slide[aria-hidden="false"] .modal__overlay {
 	animation: mmfadeIn 0.3s cubic-bezier(0, 0, 0.2, 1);
 }
 
-.micromodal-slide[aria-hidden='false'] .modal__container {
+.micromodal-slide[aria-hidden="false"] .modal__container {
 	animation: mmslideIn 0.3s cubic-bezier(0, 0, 0.2, 1);
 }
 
-.micromodal-slide[aria-hidden='true'] .modal__overlay {
+.micromodal-slide[aria-hidden="true"] .modal__overlay {
 	animation: mmfadeOut 0.3s cubic-bezier(0, 0, 0.2, 1);
 }
 
-.micromodal-slide[aria-hidden='true'] .modal__container {
+.micromodal-slide[aria-hidden="true"] .modal__container {
 	animation: mmslideOut 0.3s cubic-bezier(0, 0, 0.2, 1);
 }
