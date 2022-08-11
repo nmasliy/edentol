@@ -68,6 +68,11 @@
 			gap: 25px 487px;
 		}
 	}
+	.lead {
+		&__box {
+			max-width: 500px;
+		}
+	}
 }
 
 // 1024
@@ -271,6 +276,26 @@
 			margin: -8px;
 		}
 	}
+	.lead {
+		&--2 {
+			.lead__inner {
+				padding-top: 310px;
+				background-position: top left 10%;
+				background-size: 110% auto;
+				border-radius:  25px 25px 0 0;
+			}
+		}
+		&__inner {
+			padding-top: 310px;
+			background-position: top left 10%;
+			background-size: 110% auto;
+			border-radius:  25px 25px 0 0;
+		}
+		&__box {
+			max-width: 100%;
+			border-radius: 0 0 25px 25px;
+		}
+	}
 }
 
 @media screen and (max-width: 768px) {
@@ -445,6 +470,7 @@
 			display: block;
 		}
 	}
+
 }
 
 @media screen and (max-width: 600px) {
@@ -515,12 +541,53 @@
 			bottom: -375px;
 		}
 	}
+	.lead {
+		.container {
+			padding: 0 25px;
+		}
+		&__subtitle {
+			font-size: 15px;
+			line-height: 1.1;
+		}
+		&__title {
+			font-size: 18px;
+			margin-bottom: 24px;
+			line-height: 1.16;
+		}
+		&__box {
+			padding: 24px 32px;
+			background: url('../img/lead-waves-mob.svg') center / cover no-repeat,linear-gradient(293.42deg, #D3E7FF 66.73%, #D3E7FF 66.73%, #E1F8FF 99.24%);
+		}
+		&__inner {
+			padding-top: 210px;
+		}
+		&--2 {
+			.lead__inner {
+				padding-top: 210px;
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 450px) {
 	.hero-slider {
 		&__item {
 			width: 200px;
+		}
+	}
+	.lead {
+		&__btn {
+			padding: 20px 10px;
+			width: 100%;
+			font-size: 17px;
+		}
+		&--2 {
+			.lead__inner {
+				background-size: 150% auto;
+			}
+		}
+		&__inner {
+			background-size: 150% auto;
 		}
 	}
 }
