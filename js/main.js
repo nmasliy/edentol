@@ -1,9 +1,10 @@
 window.addEventListener('DOMContentLoaded', function () {
 	function initMenu() {
 		const $html = document.querySelector('html')
-		const $headerMenu = document.querySelector('.menu')
+		const $headerMenu = document.querySelector('.header__menu')
+		const $navLinks = $headerMenu.querySelectorAll('.header__navigation ul li a')
 		const $headerBtn = document.querySelector('.header__burger')
-		const $headerCloseBtn = document.querySelector('.menu__close')
+		const $headerCloseBtn = document.querySelector('.header__close')
 		const $headerOverlay = document.querySelector('.header__overlay')
 		const TRANSITION_DELAY = 500
 
@@ -17,6 +18,9 @@ window.addEventListener('DOMContentLoaded', function () {
 				$headerBtn.addEventListener('click', openMenu)
 				$headerCloseBtn.addEventListener('click', closeMenu)
 				$headerOverlay.addEventListener('click', closeMenu)
+				$navLinks.forEach(item => {
+					item.addEventListener('click', closeMenu)
+				})
 			} else {
 				window.addEventListener('resize', checkScreenWidth)
 			}
@@ -26,7 +30,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 		function openMenu() {
 			$headerOverlay.style.display = 'block'
-			$headerMenu.style.display = 'block'
+			$headerMenu.style.display = 'flex'
 			$html.classList.add('overflow-hidden')
 
 			setTimeout(function () {
@@ -247,7 +251,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
-	// initMenu()
+	initMenu()
 	initModals()
 	initCountdown()
 	initHeroSlider()
