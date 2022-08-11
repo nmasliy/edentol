@@ -104,6 +104,7 @@ window.addEventListener('DOMContentLoaded', function () {
 	function initHeroSlider() {
 		const swiper = new Swiper('.hero__slider', {
 			initialSlide: 1,
+			spaceBetween: 16,
 			pagination: {
 				el: '.swiper-pagination',
 				clickable: true,
@@ -112,6 +113,19 @@ window.addEventListener('DOMContentLoaded', function () {
 				nextEl: '.swiper-button-next',
 				prevEl: '.swiper-button-prev',
 			},
+			breakpoints: {
+				// when window width is >= 320px
+				320: {
+					slidesPerView: 'auto',
+					centeredSlides: true,
+				},
+				// when window width is >= 768
+				768: {
+					slidesPerView: 1,
+					spaceBetween: 16,
+					centeredSlides: false,
+				}
+			}
 		})
 	}
 

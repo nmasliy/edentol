@@ -22,7 +22,7 @@
 		margin-bottom: 32px;
 		font-weight: 300;
 		span {
-			font-weight: 600;
+			font-weight: 500;
 		}
 	}
 
@@ -50,18 +50,19 @@
 			height: 36px;
 			margin-right: 10px;
 			flex-shrink: 0;
-			background: url('../img/discount-icon.svg') center no-repeat;
+			background: url('../img/discount-icon.svg') center / cover no-repeat;
 		}
 	}
 
 	&__buttons {
 		display: flex;
+		flex-wrap: wrap;
+		gap: 16px 24px;
 	}
 
 	&__play {
 		display: flex;
 		align-items: center;
-		margin-left: 24px;
 		letter-spacing: 0.0025em;
 		&::before {
 			content: "";
@@ -134,6 +135,12 @@
 	}
 	.swiper-pagination {
 		display: none;
+		.swiper-pagination-bullet {
+			background-color: #C9D5F4;
+			&-active {
+				background-color: #5F6C8B;
+			}
+		}
 	}
 	&__item {
 		box-sizing: border-box;
