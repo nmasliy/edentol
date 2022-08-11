@@ -240,6 +240,21 @@
 			grid-template-columns: 1fr 1fr;
 		}
 	}
+	.video {
+		&__box {
+			margin-top: 24px;
+		}
+		&__wrapper {
+			&::before {
+				background: url("../img/player-icon.svg") center / 48px no-repeat,
+					linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+				border-radius: 26px;
+			}
+			video {
+				border-radius: 26px;
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 768px) {
@@ -393,6 +408,12 @@
 			}
 		}
 	}
+	.video {
+		&::before {
+			background: url("../img/wave-1-mob.svg") center repeat-x;
+			bottom: -200px;
+		}
+	}
 }
 
 @media screen and (max-width: 600px) {
@@ -455,6 +476,12 @@
 			text-decoration: underline;
 			color: #5f6c8b;
 			align-self: flex-start;
+		}
+	}
+	.video {
+		&::before {
+			background: url("../img/wave-1-mob.svg") center left 81% repeat-x;
+			bottom: -375px;
 		}
 	}
 }

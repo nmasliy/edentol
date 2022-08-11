@@ -8,7 +8,7 @@
 		height: 534px;
 		bottom: -100px;
 		z-index: -1;
-		background: url('../img/wave-1.svg') center repeat-x ;
+		background: url("../img/wave-1.svg") center repeat-x;
 	}
 
 	&__box {
@@ -20,16 +20,16 @@
 		display: inline-block;
 		&::before {
 			position: absolute;
-			content: '';
+			content: "";
 			width: 100%;
 			height: 100%;
 			left: 50%;
 			top: 50%;
 			transform: translate(-50%, -50%);
-			background: url('../img/player-icon.svg') center / 72px no-repeat,
+			background: url("../img/player-icon.svg") center / 72px no-repeat,
 				linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
 			border-radius: 35px;
-			transition: opacity .3s;
+			transition: opacity 0.3s;
 			opacity: 0;
 		}
 		&.overlay {
@@ -41,6 +41,8 @@
 			display: flex;
 			border-radius: 35px;
 			height: auto;
+			max-width: 100%;
+			object-fit: cover;
 		}
 	}
 }
