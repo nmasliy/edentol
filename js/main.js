@@ -265,6 +265,23 @@ window.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
+	function initAboutShowMore() {
+		const $button = document.querySelector('.about__more');
+		const $list = document.querySelector('.about__list');
+		const moreText = $button.dataset.more 
+		const lessText = $button.dataset.less 
+
+		$button.addEventListener('click', function() {
+			if ($list.classList.contains('active')) {
+				$button.textContent = moreText
+				$list.classList.remove('active')
+			} else {
+				$button.textContent = lessText
+				$list.classList.add('active')
+			}
+		})
+	}
+
 	initMenu()
 	initModals()
 	initCountdown()
@@ -275,4 +292,5 @@ window.addEventListener('DOMContentLoaded', function () {
 	initSystem()
 	initFormValidate()
 	initPhoneMask()
+	initAboutShowMore()
 })
