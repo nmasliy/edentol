@@ -255,6 +255,22 @@
 			}
 		}
 	}
+	.benefits {
+		&__item {
+			padding: 16px 24px;
+			margin: 8px;
+			width: calc(100% / 3 - 16px);
+		}
+		&__name {
+			font-size: 18px;
+			margin-top: 16px;
+			margin-bottom: 8px;
+		}
+		&__list {
+			padding-top: 50px;
+			margin: -8px;
+		}
+	}
 }
 
 @media screen and (max-width: 768px) {
@@ -412,6 +428,21 @@
 		&::before {
 			background: url("../img/wave-1-mob.svg") center repeat-x;
 			bottom: -200px;
+		}
+	}
+	.benefits {
+		&__item {
+			margin: 0;
+			margin-bottom: 16px;
+			width: auto;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		&__list {
+			padding-top: 24px;
+			margin: 0;
+			display: block;
 		}
 	}
 }
