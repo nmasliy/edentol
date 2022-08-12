@@ -1040,18 +1040,30 @@
 			&--2 {
 				top: 136px;
 				left: 64px;
+				.system__element-text {
+					left: 23px;
+				}
 			}
 			&--3 {
 				bottom: 56px;
 				left: 94px;
+				&.active {
+					z-index: 7;
+				}
 			}
 			&--4 {
 				bottom: 18px;
 				left: 71px;
+				.system__element-text {
+					left: 11px;
+				}
 			}
 			&--5 {
 				bottom: 18px;
 				left: 28px;
+				.system__element-text {
+					left: 11px;
+				}
 			}
 		}
 	}

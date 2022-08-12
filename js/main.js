@@ -220,8 +220,18 @@ window.addEventListener("DOMContentLoaded", function () {
 		$itemsWrapper.addEventListener("click", function (e) {
 			const $btn = e.target.closest(".system__element-btn");
 			const $item = e.target.closest(".system__element");
-			if ($btn) {
-				$item.classList.toggle("active");
+			if (window.innerWidth > 768) {
+				if ($btn) {
+					$item.classList.toggle("active");
+				}
+			} else {
+				if ($btn) {
+					const $active = $itemsWrapper.querySelector('.system__element.active');
+					if ($active) {
+						$active.classList.remove('active');
+					}
+					$item.classList.add("active");
+				}
 			}
 		});
 	}
