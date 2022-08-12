@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", function () {
 		const $headerBtn = document.querySelector(".header__burger");
 		const $headerCloseBtn = document.querySelector(".header__close");
 		const $headerOverlay = document.querySelector(".header__overlay");
-		const TRANSITION_DELAY = 500;
+		const TRANSITION_DELAY = 300;
 
 		let isInit = false;
 
@@ -262,19 +262,28 @@ window.addEventListener("DOMContentLoaded", function () {
 		});
 
 		if ($modals.length > 0) {
+			const $modal = document.querySelector('#modal-1')
+			const $modalContent = $modal.querySelector('.modal__content')
+			const modalContent = $modal.querySelector('.modal__content').innerHTML
+			const $modalSubmit = $modalContent.querySelector('#modal-submit')
+			const $modalThanksContent = document.querySelector('.modal-thanks .modal__content')
+
 			MicroModal.init({
 				onShow: (modal) => {
-					// Custom events
+					document.querySelector('html').classList.add('overflow-hidden')
 				},
 				onClose: (modal) => {
-					// Custom events
+					document.querySelector('html').classList.remove('overflow-hidden')
 				},
 				disableFocus: true,
 				openClass: "is-open",
 				awaitOpenAnimation: true,
 				awaitCloseAnimation: true,
-				disableScroll: true,
+				disableScroll: false,
 			});
+			$modalSubmit.addEventListener('click', function(e) {
+				// e.preventDefault()
+			})
 		}
 	}
 

@@ -682,7 +682,12 @@
 		}
 	}
 	.consult {
-		background: linear-gradient(293.42deg, #D3E7FF 66.73%, #D3E7FF 66.73%, #E1F8FF 99.24%);
+		background: linear-gradient(
+			293.42deg,
+			#d3e7ff 66.73%,
+			#d3e7ff 66.73%,
+			#e1f8ff 99.24%
+		);
 		padding: 25px 0;
 		&__title {
 			font-size: 28px;
@@ -719,7 +724,7 @@
 		background: 0;
 		padding: 0;
 		&__icon {
-			background: #EFF5FB;
+			background: #eff5fb;
 		}
 		&__text {
 			font-size: 16px;
@@ -754,9 +759,21 @@
 		&__title {
 			font-size: 40px;
 			text-align: center;
+			margin-bottom: 18px;
+		}
+		&__btn {
+			display: block;
+			width: 100%;
 		}
 		&__subtitle {
+			font-size: 18px;
 			text-align: center;
+			margin-bottom: 24px;
+		}
+	}
+	.modal-contacts {
+		.modal__inner {
+			padding: 32px 24px;
 		}
 	}
 }
@@ -941,7 +958,7 @@
 					}
 				}
 				.coop__text {
-					font-family: 'Roboto', sans-serif;
+					font-family: "Roboto", sans-serif;
 					font-weight: 600;
 				}
 			}
@@ -954,7 +971,7 @@
 			&::after {
 				position: absolute;
 				content: "";
-				background: url('../img/arrow-down.svg') center no-repeat;
+				background: url("../img/arrow-down.svg") center no-repeat;
 				width: 12px;
 				height: 21px;
 				bottom: -28px;
