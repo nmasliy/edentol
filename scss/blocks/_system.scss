@@ -1,11 +1,13 @@
 .system {
 	&__inner {
 		display: flex;
+		align-items: flex-start;
 	}
 
 	&__box {
 		position: relative;
 		padding-right: 200px;
+		flex-shrink: 0;
 
 		&::before {
 			position: absolute;
@@ -26,11 +28,12 @@
 
 	&__element {
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		position: absolute;
-		min-height: 45px;
+		min-width: 300px;
 
 		&.active {
+			z-index: 6;
 			.system__element-btn {
 				background-color: rgba(91, 234, 68, 1);
 			}
@@ -46,6 +49,7 @@
 		&--2 {
 			top: 262px;
 			left: 170px;
+			z-index: 2;
 		}
 		&--3 {
 			bottom: 116px;
@@ -54,6 +58,7 @@
 		&--4 {
 			bottom: 36px;
 			left: 163px;
+			z-index: 2;
 		}
 		&--5 {
 			bottom: 37px;
@@ -62,6 +67,7 @@
 	}
 
 	&__element-btn {
+		position: relative;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -69,8 +75,8 @@
 		width: 25px;
 		height: 25px;
 		background-color: rgba(91, 234, 68, 0.7);
-		position: relative;
 		border-radius: 50%;
+
 		&::before {
 			position: absolute;
 			content: '';
@@ -105,10 +111,14 @@
 	}
 
 	&__element-text {
+		position: absolute;
+		left: 20px;
+		top: 50%;
+		transform: translateY(-50%);
 		font-size: 14px;
 		letter-spacing: 0.0025em;
 		background-color: $white;
-		box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.15);
+		box-shadow: 3px 2px 8px  rgba(0, 0, 0, 0.15);
 		border-radius: 10px;
 		padding: 12px;
 		margin-left: 10px;

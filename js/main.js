@@ -209,8 +209,9 @@ window.addEventListener("DOMContentLoaded", function () {
 		const $itemsWrapper = document.querySelector(".system__elements");
 
 		$itemsWrapper.addEventListener("click", function (e) {
+			const $btn = e.target.closest(".system__element-btn");
 			const $item = e.target.closest(".system__element");
-			if ($item) {
+			if ($btn) {
 				$item.classList.toggle("active");
 			}
 		});
@@ -285,6 +286,24 @@ window.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
+	function initMobileSlider(parent, wrapper, items, breakpoint = 768) {
+		if (window.innerWidth <= breakpoint) {
+			const $parent = document.querySelector(parent)
+			const $wrapper = $parent.querySelector(wrapper)
+			const $items = $wrapper.querySelectorAll(items)
+			
+			$parent.classList.add('swiper')
+			$wrapper.classList.add('swiper-wrapper')
+			$items.forEach(slide => slide.classList.add('swiper-slide'))
+
+			const swiper = new Swiper(parent, {
+				slidesPerView: "auto",
+				spaceBetween: 16,
+				// autoHeight: true
+			});
+		}
+	}
+
 	initMenu();
 	initModals();
 	initCountdown();
@@ -296,4 +315,7 @@ window.addEventListener("DOMContentLoaded", function () {
 	initFormValidate();
 	initPhoneMask();
 	initAboutShowMore();
+	initMobileSlider('.best__content', '.best__list', '.best__item', 1024)
+	initMobileSlider('.extra__content', '.extra__list', '.extra__item', 1024)
+	initMobileSlider('.why__content-wrapper', '.why__content', '.why__col')
 });

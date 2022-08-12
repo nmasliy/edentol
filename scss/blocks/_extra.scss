@@ -1,6 +1,9 @@
 .extra {
-	&__list {
+	&__content {
 		padding-top: 80px;
+	}
+	
+	&__list {
 		display: flex;
 		flex-wrap: wrap;
 	}

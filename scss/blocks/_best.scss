@@ -1,9 +1,12 @@
 .best {
 
+	&__content {
+		padding-top: 80px;
+	}
+	
 	&__list {
 		display: flex;
 		align-items: flex-start;
-		padding-top: 80px;
 		margin: 0 -14px;
 		min-height: 800px;
 	}
@@ -19,6 +22,7 @@
 		border-radius: 35px;
 		padding: 30px 25px;
 		min-height: 580px;
+		box-sizing: border-box;
 		transition: .3s;
 		&:hover {
 			transform: scaleX(1.02);
