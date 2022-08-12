@@ -133,18 +133,28 @@ window.addEventListener("DOMContentLoaded", function () {
 	}
 
 	function initCoopSlider() {
-		const swiper = new Swiper(".coop__slider", {
-			slidesPerView: "auto",
-			spaceBetween: 30,
-			pagination: {
-				el: ".swiper-pagination",
-				clickable: true,
-			},
-			navigation: {
-				nextEl: ".swiper-button-next",
-				prevEl: ".swiper-button-prev",
-			},
-		});
+		if (window.innerWidth > 600) {
+			const $parent = document.querySelector('.coop__slider')
+			const $wrapper = $parent.querySelector('.coop__list')
+			const $items = $wrapper.querySelectorAll('.coop__item')
+			
+			$parent.classList.add('swiper')
+			$wrapper.classList.add('swiper-wrapper')
+			$items.forEach(slide => slide.classList.add('swiper-slide'))
+
+			const swiper = new Swiper(".coop__slider", {
+				slidesPerView: "auto",
+				spaceBetween: 30,
+				pagination: {
+					el: ".swiper-pagination",
+					clickable: true,
+				},
+				navigation: {
+					nextEl: ".swiper-button-next",
+					prevEl: ".swiper-button-prev",
+				},
+			});
+		} 
 	}
 
 	function initPlayer() {
@@ -169,7 +179,6 @@ window.addEventListener("DOMContentLoaded", function () {
 		const phoneMask = IMask(document.querySelector(".form__phone"), {
 			mask: "+{7}(000)000-00-00",
 		});
-		// form__phone
 	}
 
 	function initBestHover() {
