@@ -1,14 +1,12 @@
 .best {
-
 	&__content {
-		padding-top: 80px;
+		padding-top: 60px;
 	}
 	
 	&__list {
 		display: flex;
 		align-items: flex-start;
 		margin: 0 -14px;
-		min-height: 800px;
 	}
 
 	&__item {
@@ -20,14 +18,9 @@
 		width: calc(100% / 3 - 28px);
 		background-color: #f5f8fa;
 		border-radius: 35px;
-		padding: 30px 25px;
-		min-height: 580px;
+		padding: 30px 23px;
 		box-sizing: border-box;
 		transition: .3s;
-		&:hover {
-			transform: scaleX(1.02);
-			transform-origin: right;
-		}
 	}
 
 	&__btn {
@@ -36,7 +29,9 @@
 
 	&__img {
 		text-align: center;
+		align-self: center;
 		margin-bottom: 17px;
+		height: 224px;
 		img {
 			max-height: 224px;
 		}

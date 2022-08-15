@@ -1,11 +1,8 @@
 .benefits {
-	&__inner {
-	}
-
 	&__list {
 		display: flex;
 		margin: 0 -15px;
-		padding-top: 80px;
+		padding-top: 60px;
 	}
 
 	&__item {
@@ -28,4 +25,5 @@
 		line-height: 1.4;
 		color: rgba($text, 0.8);
 	}
+
 }

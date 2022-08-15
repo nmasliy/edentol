@@ -1,4 +1,7 @@
 @media screen and (max-width: 1400px) {
+	.hero__benefits {
+		width: auto;
+	}
 	.system {
 		&__inner {
 			justify-content: space-between;
@@ -39,6 +42,7 @@
 		&__slider-wrapper {
 			max-width: 580px;
 			height: 475px;
+			left: 0;
 		}
 		&__slider-info {
 			margin-left: 25px;
@@ -70,6 +74,7 @@
 		}
 	}
 	.about {
+		padding-top: 120px;
 		&__img {
 			transform: translate(-50%, -50%) scale(0.8);
 		}
@@ -331,7 +336,7 @@
 			max-height: 1000px;
 		}
 		&__list {
-			min-height: auto;
+			height: auto;
 			margin: 0;
 		}
 		&__item {

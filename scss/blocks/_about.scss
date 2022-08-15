@@ -1,5 +1,7 @@
 .about {
 	background-color: #F5F8FA;
+	padding-top: 215px;
+	
 	&__content {
 		min-height: 800px;
 		display: flex;
@@ -45,7 +47,7 @@
 		display: grid;
 		grid-template-columns: 1.3fr 1fr;
 		grid-template-rows: 1fr 1fr 1fr;
-		gap: 36px 577px;
+		gap: 27px 577px;
 	}
 	
 	&__item {

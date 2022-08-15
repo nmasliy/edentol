@@ -1,8 +1,8 @@
 .hero {
 	background: url("../img/hero-bg.png") right bottom -55px no-repeat,
 		linear-gradient(292.36deg, #d3e7ff 40.11%, #d3e7ff 40.11%, #e1f8ff 99.23%);
-	margin-bottom: 120px;
 	padding-top: 0;
+
 	&__inner {
 		display: flex;
 		padding-top: 40px;
@@ -28,7 +28,7 @@
 
 	&__subtitle {
 		font-weight: 300;
-		font-size: 24px;
+		font-size: 20px;
 		margin-bottom: 42px;
 	}
 
@@ -105,6 +105,7 @@
 		width: 100%;
 		margin-left: auto;
 		position: relative;
+		left: 55px;
 		&::before {
 			position: absolute;
 			content: "";
@@ -122,6 +123,7 @@
 		position: relative;
 		top: 120px;
 		margin-top: -60px;
+		width: calc(100% - 40px);
 	}
 }
 

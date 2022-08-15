@@ -134,13 +134,13 @@ window.addEventListener("DOMContentLoaded", function () {
 
 	function initCoopSlider() {
 		if (window.innerWidth > 600) {
-			const $parent = document.querySelector('.coop__slider')
-			const $wrapper = $parent.querySelector('.coop__list')
-			const $items = $wrapper.querySelectorAll('.coop__item')
-			
-			$parent.classList.add('swiper')
-			$wrapper.classList.add('swiper-wrapper')
-			$items.forEach(slide => slide.classList.add('swiper-slide'))
+			const $parent = document.querySelector(".coop__slider");
+			const $wrapper = $parent.querySelector(".coop__list");
+			const $items = $wrapper.querySelectorAll(".coop__item");
+
+			$parent.classList.add("swiper");
+			$wrapper.classList.add("swiper-wrapper");
+			$items.forEach((slide) => slide.classList.add("swiper-slide"));
 
 			const swiper = new Swiper(".coop__slider", {
 				slidesPerView: "auto",
@@ -154,7 +154,7 @@ window.addEventListener("DOMContentLoaded", function () {
 					prevEl: ".swiper-button-prev",
 				},
 			});
-		} 
+		}
 	}
 
 	function initPlayer() {
@@ -181,39 +181,6 @@ window.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
-	function initBestHover() {
-		$items = document.querySelectorAll(".best__item");
-
-		if (window.innerWidth > 1024) {
-			$items.forEach((item) => {
-				const $hiddenBlock = item.querySelector(".best__info");
-				const blockHeight = $hiddenBlock.offsetHeight;
-				let isHover = false;
-				$hiddenBlock.style.display = "none";
-				item.addEventListener("mouseenter", function () {
-					isHover = true;
-					$hiddenBlock.style.height = "0";
-					$hiddenBlock.style.margin = "0";
-					$hiddenBlock.style.display = "";
-					setTimeout(function () {
-						$hiddenBlock.style.height = blockHeight + "px";
-						$hiddenBlock.style.margin = "";
-					}, 1);
-				});
-				item.addEventListener("mouseleave", function () {
-					isHover = false;
-					$hiddenBlock.style.height = "0";
-					$hiddenBlock.style.margin = "0";
-					setTimeout(function () {
-						if (!isHover) {
-							$hiddenBlock.style.display = "none";
-						}
-					}, 300);
-				});
-			});
-		}
-	}
-
 	function initSystem() {
 		const $itemsWrapper = document.querySelector(".system__elements");
 
@@ -226,9 +193,11 @@ window.addEventListener("DOMContentLoaded", function () {
 				}
 			} else {
 				if ($btn) {
-					const $active = $itemsWrapper.querySelector('.system__element.active');
+					const $active = $itemsWrapper.querySelector(
+						".system__element.active"
+					);
 					if ($active) {
-						$active.classList.remove('active');
+						$active.classList.remove("active");
 					}
 					$item.classList.add("active");
 				}
@@ -236,10 +205,57 @@ window.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
+	function initAjaxForms() {
+		let form;
+		let action;
+		function findElements() {
+			form = document.querySelector(".form-telegram");
+			({ action } = form);
+		}
+		function showMessage(data) {
+			alert(data.message);
+		}
+		function onSuccess(response) {
+			return response.json().then(showMessage);
+		}
+		function onError(data) {
+			console.error(data);
+		}
+		function collectData(currentForm) {
+			const data = new FormData(currentForm);
+			return data;
+		}
+		function setOptions(currentForm) {
+			return {
+				method: "post",
+				body: collectData(currentForm),
+			};
+		}
+		function sendForm(currentForm) {
+			return fetch(action, setOptions(currentForm));
+		}
+		function onSubmit(event) {
+			event.preventDefault();
+			const { currentTarget } = event;
+			sendForm(currentTarget)
+				.then((response) => onSuccess(response, currentTarget))
+				.catch(onError);
+		}
+		function subscribe() {
+			form.addEventListener("submit", onSubmit);
+		}
+		function init() {
+			findElements();
+			subscribe();
+		}
+		init();
+	}
+
 	function initFormValidate() {
 		const $forms = document.querySelectorAll(".form");
 
 		$forms.forEach((form) => {
+
 			const $inputs = form.querySelectorAll(".form__input");
 
 			$inputs.forEach((input) => {
@@ -272,18 +288,20 @@ window.addEventListener("DOMContentLoaded", function () {
 		});
 
 		if ($modals.length > 0) {
-			const $modal = document.querySelector('#modal-1')
-			const $modalContent = $modal.querySelector('.modal__content')
-			const modalContent = $modal.querySelector('.modal__content').innerHTML
-			const $modalSubmit = $modalContent.querySelector('#modal-submit')
-			const $modalThanksContent = document.querySelector('.modal-thanks .modal__content')
+			const $modal = document.querySelector("#modal-1");
+			const $modalContent = $modal.querySelector(".modal__content");
+			const modalContent = $modal.querySelector(".modal__content").innerHTML;
+			const $modalSubmit = $modalContent.querySelector("#modal-submit");
+			const $modalThanksContent = document.querySelector(
+				".modal-thanks .modal__content"
+			);
 
 			MicroModal.init({
 				onShow: (modal) => {
-					document.querySelector('html').classList.add('overflow-hidden')
+					document.querySelector("html").classList.add("overflow-hidden");
 				},
 				onClose: (modal) => {
-					document.querySelector('html').classList.remove('overflow-hidden')
+					document.querySelector("html").classList.remove("overflow-hidden");
 				},
 				disableFocus: true,
 				openClass: "is-open",
@@ -291,9 +309,9 @@ window.addEventListener("DOMContentLoaded", function () {
 				awaitCloseAnimation: true,
 				disableScroll: false,
 			});
-			$modalSubmit.addEventListener('click', function(e) {
+			$modalSubmit.addEventListener("click", function (e) {
 				// e.preventDefault()
-			})
+			});
 		}
 	}
 
@@ -316,13 +334,13 @@ window.addEventListener("DOMContentLoaded", function () {
 
 	function initMobileSlider(parent, wrapper, items, breakpoint = 768) {
 		if (window.innerWidth <= breakpoint) {
-			const $parent = document.querySelector(parent)
-			const $wrapper = $parent.querySelector(wrapper)
-			const $items = $wrapper.querySelectorAll(items)
-			
-			$parent.classList.add('swiper')
-			$wrapper.classList.add('swiper-wrapper')
-			$items.forEach(slide => slide.classList.add('swiper-slide'))
+			const $parent = document.querySelector(parent);
+			const $wrapper = $parent.querySelector(wrapper);
+			const $items = $wrapper.querySelectorAll(items);
+
+			$parent.classList.add("swiper");
+			$wrapper.classList.add("swiper-wrapper");
+			$items.forEach((slide) => slide.classList.add("swiper-slide"));
 
 			const swiper = new Swiper(parent, {
 				slidesPerView: "auto",
@@ -338,12 +356,12 @@ window.addEventListener("DOMContentLoaded", function () {
 	initHeroSlider();
 	initCoopSlider();
 	initPlayer();
-	initBestHover();
 	initSystem();
+	// initAjaxForms();
 	initFormValidate();
 	initPhoneMask();
 	initAboutShowMore();
-	initMobileSlider('.best__content', '.best__list', '.best__item', 1024)
-	initMobileSlider('.extra__content', '.extra__list', '.extra__item', 1024)
-	initMobileSlider('.why__content-wrapper', '.why__content', '.why__col')
+	initMobileSlider(".best__content", ".best__list", ".best__item", 1024);
+	initMobileSlider(".extra__content", ".extra__list", ".extra__item", 1024);
+	initMobileSlider(".why__content-wrapper", ".why__content", ".why__col");
 });
