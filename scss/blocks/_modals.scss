@@ -51,6 +51,20 @@
 	}
 }
 
+.modal-buy {
+	&.step-2 {
+		.modal-buy__contacts {
+			display: block;
+		}
+		.modal-buy__content {
+			display: none;
+		}
+	}
+	&__contacts {
+		display: none;
+	}
+}
+
 .modal-contacts {
 	.modal__inner {
 		padding: 40px 50px;

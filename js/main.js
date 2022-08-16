@@ -213,6 +213,14 @@ window.addEventListener("DOMContentLoaded", function () {
 		const $forms = document.querySelectorAll(".form-telegram");
 		const $modals = document.querySelectorAll(".modal");
 
+		function showModal(id) {
+			document.querySelector("html").classList.add("overflow-hidden");
+			document.querySelector("#" + id).setAttribute("aria-hidden", false);
+			setTimeout(function () {
+				document.querySelector("#" + id).classList.add("is-open");
+			}, 1);
+		}
+
 		function closeModal(id) {
 			document.querySelector("html").classList.remove("overflow-hidden");
 			document.querySelector("#" + id).setAttribute("aria-hidden", true);
@@ -223,27 +231,32 @@ window.addEventListener("DOMContentLoaded", function () {
 
 		$forms.forEach((form) => {
 			form.addEventListener("submit", onSubmit);
+			const action = form.getAttribute('action')
 
 			function onSubmit(e) {
 				e.preventDefault();
 
 				const name = form.querySelector(".form__name").value;
 				const phone = form.querySelector(".form__phone").value;
+				const radio = form.querySelector(".form__radio input:checked")?.value || null;
 
 				minAjax({
-					url: "telegram.php", //request URL
+					url: action, //request URL
 					type: "POST", //Request type GET/POST
 					//Send Data in form of GET/POST
 					data: {
 						name: name,
 						phone: phone,
+						variant: radio
 					},
 					//CALLBACK FUNCTION with RESPONSE as argument
 					success: function (data) {
 						$modals.forEach((modal) => {
 							closeModal(modal.id);
 						});
-						openModal("modal-2");
+						setTimeout(function() {
+							showModal("modal-2");
+						}, 320)
 					},
 				});
 			}
@@ -318,39 +331,36 @@ window.addEventListener("DOMContentLoaded", function () {
 			}, 300);
 		}
 
-		function checkBestRadio() {
-			const $buttons = document.querySelectorAll('.best__btn');
+		const $modalBtnToNextStep = document.querySelector('#modal-buy-btn');
 
-			$buttons.forEach(btn => {
+		$modalBtnToNextStep.addEventListener('click', function() {
+			$modalBtnToNextStep.closest('.modal-buy').classList.add('step-2');
+		})
+
+
+		function checkFormRadio() {
+			const $buttonsBest = document.querySelectorAll('.best__btn');
+			const $buttonHero = document.querySelector('.hero__btn');
+
+			$buttonsBest.forEach(btn => {
 				btn.addEventListener('click', function() {
 					const value = btn.closest('.best__item').dataset.variant
 
 					const radio = document.querySelector(`input[type="radio"][name="variant"][value="${value}"]`);
 
 					radio.checked = true;
-
-					console.log(radio)
 				})
 			})
-			// document.querySelector('input[name="variants"]:checked').value;
-		}
-		checkBestRadio();
+			$buttonHero.addEventListener('click', function() {
+				const value = document.querySelector('.hero-slider__item.swiper-slide-active').dataset.variant
 
-		// if ($modals.length > 0) {
-		// 	MicroModal.init({
-		// 		onShow: (modal) => {
-		// 			document.querySelector("html").classList.add("overflow-hidden");
-		// 		},
-		// 		onClose: (modal) => {
-		// 			document.querySelector("html").classList.remove("overflow-hidden");
-		// 		},
-		// 		disableFocus: true,
-		// 		openClass: "is-open",
-		// 		awaitOpenAnimation: true,
-		// 		awaitCloseAnimation: true,
-		// 		disableScroll: false,
-		// 	});
-		// }
+				const radio = document.querySelector(`input[type="radio"][name="variant"][value="${value}"]`);
+
+				radio.checked = true;
+			})
+			
+		}
+		checkFormRadio();
 	}
 
 	function initAboutShowMore() {
