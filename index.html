@@ -472,7 +472,7 @@
 						</div>
 						<div class="best__content">
 							<ul class="best__list">
-								<li class="best__item">
+								<li class="best__item" data-variant="1">
 									<div class="best__img">
 										<img
 											src="img/product-1.png"
@@ -509,7 +509,7 @@
 									>
 									<div class="best__discount">-33%</div>
 								</li>
-								<li class="best__item">
+								<li class="best__item" data-variant="2">
 									<div class="best__img">
 										<img
 											src="img/product-2.png"
@@ -546,7 +546,7 @@
 									>
 									<div class="best__discount">-33%</div>
 								</li>
-								<li class="best__item">
+								<li class="best__item" data-variant="3">
 									<div class="best__img">
 										<img
 											src="img/product-3.png"
@@ -930,7 +930,7 @@
 								<div class="form__item">
 									<input
 										type="text"
-										class="form__input"
+										class="form__input form__name"
 										required
 										placeholder="Ваше имя"
 										name="name"
@@ -974,7 +974,7 @@
 									</div>
 								</div>
 								<div class="form__item">
-									<button class="form__btn btn btn--shadow">Отправить</button>
+									<button type="submit" class="form__btn btn btn--shadow">Отправить</button>
 								</div>
 							</form>
 						</div>
@@ -1145,9 +1145,6 @@
 								<button
 									type="submit"
 									class="form__btn btn btn--shadow"
-									data-micromodal-close
-									data-micromodal-trigger="modal-2"
-									id="modal-submit"
 								>
 									Отправить
 								</button>
@@ -1201,7 +1198,7 @@
 								<div class="form__item">
 									<input
 										type="text"
-										class="form__input"
+										class="form__input form__name"
 										required
 										placeholder="Ваше имя"
 										name="name"
@@ -1253,7 +1250,8 @@
 				</div>
 			</div>
 		</div>
-		<script src="js/micromodal.min.js"></script>
+		<script src="js/minAjax.js""></script>
+		<!-- <script src="js/micromodal.min.js"></script> -->
 		<script src="js/imask.min.js"></script>
 		<script src="js/swiper-bundle.min.js"></script>
 		<script src="js/main.js"></script>

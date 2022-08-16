@@ -176,8 +176,12 @@ window.addEventListener("DOMContentLoaded", function () {
 	}
 
 	function initPhoneMask() {
-		const phoneMask = IMask(document.querySelector(".form__phone"), {
-			mask: "+{7}(000)000-00-00",
+		const $phones = document.querySelectorAll(".form__phone");
+
+		$phones.forEach((phone) => {
+			IMask(phone, {
+				mask: "+{7}(000)000-00-00",
+			});
 		});
 	}
 
@@ -206,56 +210,50 @@ window.addEventListener("DOMContentLoaded", function () {
 	}
 
 	function initAjaxForms() {
-		let form;
-		let action;
-		function findElements() {
-			form = document.querySelector(".form-telegram");
-			({ action } = form);
+		const $forms = document.querySelectorAll(".form-telegram");
+		const $modals = document.querySelectorAll(".modal");
+
+		function closeModal(id) {
+			document.querySelector("html").classList.remove("overflow-hidden");
+			document.querySelector("#" + id).setAttribute("aria-hidden", true);
+			setTimeout(function () {
+				document.querySelector("#" + id).classList.remove("is-open");
+			}, 300);
 		}
-		function showMessage(data) {
-			alert(data.message);
-		}
-		function onSuccess(response) {
-			return response.json().then(showMessage);
-		}
-		function onError(data) {
-			console.error(data);
-		}
-		function collectData(currentForm) {
-			const data = new FormData(currentForm);
-			return data;
-		}
-		function setOptions(currentForm) {
-			return {
-				method: "post",
-				body: collectData(currentForm),
-			};
-		}
-		function sendForm(currentForm) {
-			return fetch(action, setOptions(currentForm));
-		}
-		function onSubmit(event) {
-			event.preventDefault();
-			const { currentTarget } = event;
-			sendForm(currentTarget)
-				.then((response) => onSuccess(response, currentTarget))
-				.catch(onError);
-		}
-		function subscribe() {
+
+		$forms.forEach((form) => {
 			form.addEventListener("submit", onSubmit);
-		}
-		function init() {
-			findElements();
-			subscribe();
-		}
-		init();
+
+			function onSubmit(e) {
+				e.preventDefault();
+
+				const name = form.querySelector(".form__name").value;
+				const phone = form.querySelector(".form__phone").value;
+
+				minAjax({
+					url: "telegram.php", //request URL
+					type: "POST", //Request type GET/POST
+					//Send Data in form of GET/POST
+					data: {
+						name: name,
+						phone: phone,
+					},
+					//CALLBACK FUNCTION with RESPONSE as argument
+					success: function (data) {
+						$modals.forEach((modal) => {
+							closeModal(modal.id);
+						});
+						openModal("modal-2");
+					},
+				});
+			}
+		});
 	}
 
 	function initFormValidate() {
 		const $forms = document.querySelectorAll(".form");
 
 		$forms.forEach((form) => {
-
 			const $inputs = form.querySelectorAll(".form__input");
 
 			$inputs.forEach((input) => {
@@ -282,37 +280,77 @@ window.addEventListener("DOMContentLoaded", function () {
 		const $modalsTriggers = document.querySelectorAll(
 			"[data-micromodal-trigger]"
 		);
+		const $modalsCloseTriggers = document.querySelectorAll(
+			"[data-micromodal-close]"
+		);
 
 		$modalsTriggers.forEach((item) => {
-			item.addEventListener("click", (e) => e.preventDefault());
+			item.addEventListener("click", (e) => {
+				e.preventDefault();
+				showModal(item.dataset.micromodalTrigger);
+			});
 		});
 
-		if ($modals.length > 0) {
-			const $modal = document.querySelector("#modal-1");
-			const $modalContent = $modal.querySelector(".modal__content");
-			const modalContent = $modal.querySelector(".modal__content").innerHTML;
-			const $modalSubmit = $modalContent.querySelector("#modal-submit");
-			const $modalThanksContent = document.querySelector(
-				".modal-thanks .modal__content"
-			);
+		$modalsCloseTriggers.forEach((item) => {
+			item.addEventListener("click", (e) => {
+				if (e.target.closest(".modal__close") ||
+					(!e.target.closest(".modal__close") &&
+						!e.target.closest(".modal__container")) ) {
+					e.preventDefault();
+					closeModal(item.closest(".modal").id);
+				}
+			});
+		});
 
-			MicroModal.init({
-				onShow: (modal) => {
-					document.querySelector("html").classList.add("overflow-hidden");
-				},
-				onClose: (modal) => {
-					document.querySelector("html").classList.remove("overflow-hidden");
-				},
-				disableFocus: true,
-				openClass: "is-open",
-				awaitOpenAnimation: true,
-				awaitCloseAnimation: true,
-				disableScroll: false,
-			});
-			$modalSubmit.addEventListener("click", function (e) {
-				// e.preventDefault()
-			});
+		function showModal(id) {
+			document.querySelector("html").classList.add("overflow-hidden");
+			document.querySelector("#" + id).setAttribute("aria-hidden", false);
+			setTimeout(function () {
+				document.querySelector("#" + id).classList.add("is-open");
+			}, 1);
 		}
+
+		function closeModal(id) {
+			document.querySelector("html").classList.remove("overflow-hidden");
+			document.querySelector("#" + id).setAttribute("aria-hidden", true);
+			setTimeout(function () {
+				document.querySelector("#" + id).classList.remove("is-open");
+			}, 300);
+		}
+
+		function checkBestRadio() {
+			const $buttons = document.querySelectorAll('.best__btn');
+
+			$buttons.forEach(btn => {
+				btn.addEventListener('click', function() {
+					const value = btn.closest('.best__item').dataset.variant
+
+					const radio = document.querySelector(`input[type="radio"][name="variant"][value="${value}"]`);
+
+					radio.checked = true;
+
+					console.log(radio)
+				})
+			})
+			// document.querySelector('input[name="variants"]:checked').value;
+		}
+		checkBestRadio();
+
+		// if ($modals.length > 0) {
+		// 	MicroModal.init({
+		// 		onShow: (modal) => {
+		// 			document.querySelector("html").classList.add("overflow-hidden");
+		// 		},
+		// 		onClose: (modal) => {
+		// 			document.querySelector("html").classList.remove("overflow-hidden");
+		// 		},
+		// 		disableFocus: true,
+		// 		openClass: "is-open",
+		// 		awaitOpenAnimation: true,
+		// 		awaitCloseAnimation: true,
+		// 		disableScroll: false,
+		// 	});
+		// }
 	}
 
 	function initAboutShowMore() {
@@ -357,7 +395,7 @@ window.addEventListener("DOMContentLoaded", function () {
 	initCoopSlider();
 	initPlayer();
 	initSystem();
-	// initAjaxForms();
+	initAjaxForms();
 	initFormValidate();
 	initPhoneMask();
 	initAboutShowMore();
