@@ -238,7 +238,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 				const name = form.querySelector(".form__name").value;
 				const phone = form.querySelector(".form__phone").value;
-				const radio = form.querySelector(".form__radio input:checked")?.value || null;
+				const radio = form.querySelector(".form__radio input:checked")?.closest('label').querySelector('.form__radio-text').textContent || null;
 
 				minAjax({
 					url: action, //request URL
@@ -328,6 +328,8 @@ window.addEventListener("DOMContentLoaded", function () {
 			document.querySelector("#" + id).setAttribute("aria-hidden", true);
 			setTimeout(function () {
 				document.querySelector("#" + id).classList.remove("is-open");
+				document.querySelector('#' + id + ' form').reset();
+				$modalBtnToNextStep.closest('.modal-buy').classList.remove('step-2');
 			}, 300);
 		}
 
@@ -337,8 +339,7 @@ window.addEventListener("DOMContentLoaded", function () {
 			$modalBtnToNextStep.closest('.modal-buy').classList.add('step-2');
 		})
 
-
-		function checkFormRadio() {
+		function setPackageInfo() {
 			const $buttonsBest = document.querySelectorAll('.best__btn');
 			const $buttonHero = document.querySelector('.hero__btn');
 
@@ -346,21 +347,34 @@ window.addEventListener("DOMContentLoaded", function () {
 				btn.addEventListener('click', function() {
 					const value = btn.closest('.best__item').dataset.variant
 
-					const radio = document.querySelector(`input[type="radio"][name="variant"][value="${value}"]`);
-
-					radio.checked = true;
+					updateModal(value)
 				})
 			})
 			$buttonHero.addEventListener('click', function() {
 				const value = document.querySelector('.hero-slider__item.swiper-slide-active').dataset.variant
 
-				const radio = document.querySelector(`input[type="radio"][name="variant"][value="${value}"]`);
-
-				radio.checked = true;
+				updateModal(value)
 			})
 			
+			function updateModal(variant) {
+				const $modalForm = document.querySelector('.modal-buy');
+				const $barsData = document.querySelector('.bars-data');
+				const $barsItem = document.querySelector(`.bars-data__item[data-variant="${variant}"]`);
+
+				const name = $barsItem.querySelector('.bars-data__name').value;
+				const $pricesNew = $barsItem.querySelectorAll('.bars-data__price-new');
+				const $pricesOld = $barsItem.querySelectorAll('.bars-data__price-old');
+
+				$modalForm.querySelector('.modal__title span').textContent = name;
+
+				$modalForm.querySelectorAll('.form__radio').forEach((item, index) => {
+					item.querySelector('.form__radio-price-new').textContent = '₪ ' +  $pricesNew[index].value;
+					item.querySelector('.form__radio-price-old').textContent = '₪ ' +  $pricesOld[index].value;
+				})
+			}
+			
 		}
-		checkFormRadio();
+		setPackageInfo();
 	}
 
 	function initAboutShowMore() {
