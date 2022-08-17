@@ -996,6 +996,14 @@
 			display: none;
 		}
 	}
+	.modal-buy {
+		.form__radio {
+			padding: 0;
+		}
+		.form__btn {
+			max-width: 100%;
+		}
+	}
 }
 
 @media screen and (max-width: 450px) {

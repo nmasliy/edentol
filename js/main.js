@@ -226,39 +226,60 @@ window.addEventListener("DOMContentLoaded", function () {
 			document.querySelector("#" + id).setAttribute("aria-hidden", true);
 			setTimeout(function () {
 				document.querySelector("#" + id).classList.remove("is-open");
+				document.querySelector('#' + id + ' form')?.reset();
 			}, 300);
 		}
 
 		$forms.forEach((form) => {
 			form.addEventListener("submit", onSubmit);
 			const action = form.getAttribute('action')
-
+			
 			function onSubmit(e) {
+				let isValid = true;
+				
+				const $inputs = form.querySelectorAll('.form__input');
+				$inputs.forEach(input => {
+					if (input.classList.contains('invalid')) isValid = false;
+				})
+
 				e.preventDefault();
 
-				const name = form.querySelector(".form__name").value;
-				const phone = form.querySelector(".form__phone").value;
-				const radio = form.querySelector(".form__radio input:checked")?.closest('label').querySelector('.form__radio-text').textContent || null;
-
-				minAjax({
-					url: action, //request URL
-					type: "POST", //Request type GET/POST
-					//Send Data in form of GET/POST
-					data: {
-						name: name,
-						phone: phone,
-						variant: radio
-					},
-					//CALLBACK FUNCTION with RESPONSE as argument
-					success: function (data) {
-						$modals.forEach((modal) => {
-							closeModal(modal.id);
-						});
-						setTimeout(function() {
-							showModal("modal-2");
-						}, 320)
-					},
-				});
+				if (isValid) {
+					const name = form.querySelector(".form__name").value;
+					const phone = form.querySelector(".form__phone").value;
+					const radio = form.querySelector(".form__radio input:checked")?.value || null;
+					const variant = document.querySelector(`.bars-data__item[data-variant="${radio}"] .bars-data__name`)?.value;
+	
+					const data = [
+						'Самовывоз + комплект фильтров',
+						'Доставка + установка + комплект фильтров',
+						'Доставка + установка + полное обслуживание на год + комплект фильтров на 3 года',
+						'Доставка + установка + полное обслуживание на 3 года + комплект фильтров на 3 года',
+					]
+					
+					const itemName = form.querySelector('.modal__title span')?.innerText || null;
+	
+					minAjax({
+						url: action, //request URL
+						type: "POST", //Request type GET/POST
+						//Send Data in form of GET/POST
+						data: {
+							name: name,
+							phone: phone,
+							minibar: itemName,
+							variant: data[radio - 1]
+						},
+						//CALLBACK FUNCTION with RESPONSE as argument
+						success: function (data) {
+							$modals.forEach((modal) => {
+								closeModal(modal.id);
+							});
+							setTimeout(function() {
+								showModal("modal-2");
+							}, 320)
+						},
+					});
+				}
 			}
 		});
 	}
@@ -268,17 +289,19 @@ window.addEventListener("DOMContentLoaded", function () {
 
 		$forms.forEach((form) => {
 			const $inputs = form.querySelectorAll(".form__input");
-
+			const PHONE_LENGTH = 17;
+			
 			$inputs.forEach((input) => {
 				input.addEventListener("blur", function () {
-					if (!input.value) {
+					if (!input.value || (input.classList.contains('form__phone') && input.value.length != PHONE_LENGTH - 1)) {
 						input.classList.add("invalid");
 					} else {
 						input.classList.remove("invalid");
 					}
 				});
+				
 				input.addEventListener("input", function () {
-					if (!input.value) {
+					if (!input.value || (input.classList.contains('form__phone') && input.value.length != PHONE_LENGTH)) {
 						input.classList.add("invalid");
 					} else {
 						input.classList.remove("invalid");
@@ -328,8 +351,8 @@ window.addEventListener("DOMContentLoaded", function () {
 			document.querySelector("#" + id).setAttribute("aria-hidden", true);
 			setTimeout(function () {
 				document.querySelector("#" + id).classList.remove("is-open");
-				document.querySelector('#' + id + ' form').reset();
-				$modalBtnToNextStep.closest('.modal-buy').classList.remove('step-2');
+				document.querySelector('#' + id + ' form')?.reset();
+				$modalBtnToNextStep.closest('.modal-buy')?.classList.remove('step-2');
 			}, 300);
 		}
 
@@ -365,6 +388,8 @@ window.addEventListener("DOMContentLoaded", function () {
 				const $pricesNew = $barsItem.querySelectorAll('.bars-data__price-new');
 				const $pricesOld = $barsItem.querySelectorAll('.bars-data__price-old');
 
+				$modalForm.querySelector('.form').dataset.variant = variant;
+				
 				$modalForm.querySelector('.modal__title span').textContent = name;
 
 				$modalForm.querySelectorAll('.form__radio').forEach((item, index) => {

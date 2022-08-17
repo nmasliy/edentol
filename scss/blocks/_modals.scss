@@ -49,6 +49,11 @@
 		border: none;
 		background: 0;
 	}
+
+	.form__radio {
+		padding-left: 16px;
+		padding-right: 50px;
+	}
 }
 
 .modal-buy {
@@ -60,8 +65,16 @@
 			display: none;
 		}
 	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+	}
 	&__contacts {
 		display: none;
+	}
+	.form__btn {
+		max-width: 350px;
+		align-self: center;
 	}
 }
 
