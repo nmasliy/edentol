@@ -5,7 +5,7 @@
 	&__content {
 		padding-top: 60px;
 	}
-	
+
 	&__list {
 		display: flex;
 		align-items: flex-start;
@@ -23,7 +23,7 @@
 		border-radius: 35px;
 		padding: 30px 23px;
 		box-sizing: border-box;
-		transition: .3s;
+		transition: 0.3s;
 	}
 
 	&__btn {
@@ -60,12 +60,25 @@
 
 	&__info {
 		letter-spacing: 0.001em;
-		color: #5F6C8B;
+		color: #5f6c8b;
 		margin-top: 24px;
-		transition: .3s;
+		transition: 0.3s;
 		overflow: hidden;
 		li {
 			margin-bottom: 12px;
+			display: flex;
+			align-items: flex-start;
+			&::before {
+				content: "";
+				display: block;
+				flex-shrink: 0;
+				width: 4px;
+				height: 4px;
+				margin-top: 7px;
+				background: #5f6c8b;
+				border-radius: 50%;
+				margin-right: 8px;
+			}
 			&:last-child {
 				margin-bottom: 0;
 			}
@@ -99,7 +112,7 @@
 		text-decoration: line-through;
 		letter-spacing: 0.0015em;
 		margin-left: 11px;
-		color: #93A8DB;;
+		color: #93a8db;
 	}
 
 	&__discount {

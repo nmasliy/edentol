@@ -223,9 +223,6 @@
 				background-color: #5f6c8b;
 			}
 		}
-		&__btn {
-			width: 100%;
-		}
 		&__discount {
 			margin-bottom: 11px;
 			background-color: $red;
@@ -538,7 +535,7 @@
 		}
 		&__slider-wrapper {
 			height: 280px;
-			margin-bottom: 70px;
+			margin-bottom: 100px;
 			&::before {
 				display: none;
 			}
@@ -934,7 +931,7 @@
 			align-items: center;
 		}
 		&__slider-wrapper {
-			margin-bottom: 135px;
+			margin-bottom: 165px;
 		}
 	}
 	.hero-slider {
@@ -1179,6 +1176,10 @@
 			width: 200px;
 		}
 	}
+	.hero__btn {
+		width: 100%;
+		padding: 20px;
+	}
 	.lead {
 		&__btn {
 			padding: 20px 10px;
@@ -1197,9 +1198,6 @@
 	.best {
 		&__item {
 			width: 260px;
-		}
-		&__info {
-			max-width: 185px;
 		}
 	}
 	.system {
