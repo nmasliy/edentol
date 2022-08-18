@@ -327,8 +327,6 @@ window.addEventListener("DOMContentLoaded", function () {
 			});
 		});
 
-		showModal('modal-2')
-
 		$modalsCloseTriggers.forEach((item) => {
 			item.addEventListener("click", (e) => {
 				if (e.target.closest(".modal__close") ||
