@@ -1,6 +1,8 @@
 .why {
 	background: url('../img/wave-2.svg') bottom 170px center repeat-x;
-
+	.swiper-pagination {
+		display: none;
+	}
 	&__content-wrapper {
 		padding-top: 60px;
 	}

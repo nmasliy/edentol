@@ -141,16 +141,33 @@
 			}
 		}
 		&__phone {
-			display: none;
+			margin-bottom: 16px;
+			font-weight: 500;
+			font-size: 18px;
+			&::before {
+				width: 50px;
+				height: 50px;
+				background-color: #eff5fb;
+			}
+		}
+		&__inner {
+			justify-content: center;
+		}
+		&__logo {
+			margin-left: auto;
+			margin-right: -24px;
+		}
+		&__burger {
+			margin-left: auto;
 		}
 	}
 	.navigation {
 		font-size: 30px;
+		margin-bottom: 24px;
 		&__list {
 			display: block;
 			text-align: center;
 			margin: 0;
-			margin-bottom: 60px;
 			li {
 				margin: 0;
 				margin-bottom: 30px;
@@ -174,11 +191,12 @@
 		&__buttons {
 			position: absolute;
 			bottom: 80px;
-			left: 0;
-			right: 0;
+			left: 16px;
+			right: 16px;
 			margin: 0 auto;
 			justify-content: center;
 			flex-wrap: nowrap;
+			padding: 0 14px;
 		}
 		&__content {
 			display: flex;
@@ -199,15 +217,53 @@
 				width: 100%;
 			}
 		}
+		&__play {
+			color: #5f6c8b;
+			span::after {
+				background-color: #5f6c8b;
+			}
+		}
+		&__btn {
+			width: 100%;
+		}
 		&__discount {
-			order: 5;
-			margin-bottom: 0;
+			margin-bottom: 11px;
+			background-color: $red;
+			color: $white;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			font-weight: 400;
+			&::before {
+				background-image: url("../img/discount-icon-white.svg");
+				background-size: cover;
+			}
+			&-desc {
+				display: none;
+			}
+			&-mob {
+				display: block;
+			}
 		}
 	}
 	.benefits-icon {
-		width: 48px;
-		height: 48px;
-		padding: 12px;
+		width: 40px;
+		height: 40px;
+		padding: 8px;
+		&--lightgreen {
+			img {
+				width: 14px;
+			}
+		}
+		&--lightorange {
+			img {
+				width: 20px;
+			}
+		}
+		&--blue {
+			img {
+				width: 20px;
+			}
+		}
 		&--darkpink {
 			img {
 				height: 27px;
@@ -248,12 +304,19 @@
 			bottom: auto;
 			transform: none;
 			max-width: 80%;
-			margin-bottom: 40px;
+			margin-bottom: 55px;
 			img {
 				max-width: 300px;
 			}
 			&::before {
-				display: none;
+				width: 100%;
+				height: 100%;
+				left: calc(50%);
+				top: calc(50%);
+				width: 296px;
+				height: 260px;
+				background-image: url("../img/about-bg-mob.svg");
+				background-size: cover;
 			}
 			&::after {
 				width: 85%;
@@ -320,6 +383,11 @@
 		}
 	}
 	.best {
+		.swiper-pagination {
+			display: block;
+			position: static;
+			margin-top: 22px;
+		}
 		&__discount {
 			background-color: #f57676;
 		}
@@ -333,7 +401,7 @@
 			overflow: visible;
 			margin: 0 -32px;
 			padding: 0 32px;
-			max-height: 1000px;
+			// max-height: 1000px;
 		}
 		&__list {
 			height: auto;
@@ -357,8 +425,13 @@
 		}
 	}
 	.extra {
+		.swiper-pagination {
+			display: block;
+			position: static;
+			margin-top: 22px;
+		}
 		&__content {
-			max-height: 400px;
+			// max-height: 400px;
 			margin: 0 -32px;
 			padding: 24px 32px 0;
 		}
@@ -378,6 +451,7 @@
 			}
 		}
 		&__name {
+			color: #1D3752;
 			font-size: 18px;
 			margin-bottom: 3px;
 		}
@@ -418,13 +492,13 @@
 
 @media screen and (max-width: 768px) {
 	.section {
-		padding: 32px 0;
+		padding: 30px 0;
 		&__title {
-			font-size: 25px;
+			font-size: 27px;
 			margin-bottom: 8px;
 		}
 		&__subtitle {
-			font-size: 18px;
+			font-size: 16px;
 		}
 	}
 	.about {
@@ -476,6 +550,7 @@
 	.hero-benefits {
 		top: 270px;
 		margin-top: -210px;
+		padding: 0 14px;
 		&__item {
 			width: 100%;
 			max-width: 380px;
@@ -575,12 +650,30 @@
 	}
 	.benefits {
 		&__item {
+			display: grid;
+			align-items: center;
 			margin: 0;
 			margin-bottom: 16px;
 			width: auto;
+			grid-template-columns: 40px auto;
+			grid-template-rows: auto auto;
+			gap: 7px 10px;
+			grid-template-areas:
+				"icon name"
+				"text text";
 			&:last-child {
 				margin-bottom: 0;
 			}
+			.benefits-icon {
+				grid-area: icon;
+			}
+		}
+		&__name {
+			grid-area: name;
+			margin: 0;
+		}
+		&__text {
+			grid-area: text;
 		}
 		&__list {
 			padding-top: 24px;
@@ -589,9 +682,14 @@
 		}
 	}
 	.why {
+		.swiper-pagination {
+			display: block;
+			position: static;
+			margin-top: 22px;
+		}
 		&__content-wrapper {
-			max-height: 520px;
-			overflow: visisble;
+			// max-height: 520px;
+			overflow: visible;
 			margin: 0 -32px;
 			padding: 24px 32px 0;
 		}
@@ -688,6 +786,31 @@
 		&__inner {
 			flex-direction: column;
 			align-items: center;
+		}
+		&__list {
+			counter-reset: section; 
+			li {
+				&::before {
+					display: none;
+				}
+				&:last-child {
+					&::after {
+						top: 7px;
+					}
+				}
+				&::after {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-weight: 400;
+					font-size: 14px;
+					line-height: normal;
+					color: rgba(#5B7FBD, .8);
+					background: #B2D6F2;
+					counter-increment: section;
+					content: "0" counter(section);
+				}
+			}
 		}
 	}
 	.consult {
@@ -800,10 +923,10 @@
 			max-width: 350px;
 		}
 		&__title {
-			font-size: 32px;
+			font-size: 34px;
 		}
 		&__subtitle {
-			font-size: 13px;
+			font-size: 16px;
 			margin-bottom: 8px;
 		}
 		&__buttons {
@@ -826,27 +949,61 @@
 			}
 		}
 		&__list {
-			display: block;
+			display: flex;
+			flex-direction: column;
+			gap: 0;
 			&.active {
-				.about__item:nth-child(3) ~ .about__item {
-					display: block;
+				.about__item:nth-child(1),
+				.about__item:nth-child(3),
+				.about__item:nth-child(4){
+					display: grid;
 				}
 			}
 		}
+		&__name {
+			grid-area: name;
+			margin: 0;
+		}
+		&__info {
+			grid-area: text;
+		}
 		&__item {
-			margin-bottom: 40px;
-			&:nth-child(3) ~ .about__item {
+			position: relative;
+			margin-bottom: 32px;
+			display: grid;
+			align-items: center;
+			grid-template-columns: 48px auto;
+			grid-template-rows: auto auto;
+			grid-template-areas:
+				"icon name"
+				"text text";
+			gap: 10px 7px;
+
+			.benefits-icon {
+				grid-area: icon;
+			}
+
+			&:nth-child(1),
+			&:nth-child(3),
+			&:nth-child(4){
 				display: none;
 			}
+
+			&:nth-child(5) {
+				order: -1;
+			}
+		}
+		&__more-wrapper {
+			text-align: center;
+			display: block;
 		}
 		&__more {
 			display: inline-block;
-			font-size: 18px;
+			font-size: 16px;
 			line-height: 1.1;
 			letter-spacing: 0.0025em;
 			text-decoration: underline;
-			color: #5f6c8b;
-			align-self: flex-start;
+			color: #16c083;
 		}
 	}
 	.video {
@@ -857,19 +1014,27 @@
 	}
 	.lead {
 		.container {
-			padding: 0 25px;
+			padding: 0;
 		}
 		&__subtitle {
 			font-size: 15px;
 			line-height: 1.1;
+			margin-bottom: 6px;
 		}
 		&__title {
 			font-size: 18px;
 			margin-bottom: 24px;
 			line-height: 1.16;
 		}
+		&__img {
+			display: flex;
+		}
+		&__inner {
+			background: 0;
+		}
 		&__box {
-			padding: 24px 32px;
+			padding: 24px 20px;
+			border-radius: 0;
 			background: url("../img/lead-waves-mob.svg") center / cover no-repeat,
 				linear-gradient(
 					293.42deg,
@@ -879,17 +1044,19 @@
 				);
 		}
 		&__inner {
-			padding-top: 210px;
+			padding-top: 0;
+			border-radius: 0;
 		}
 		&--2 {
 			.lead__inner {
-				padding-top: 210px;
+				padding-top: 0;
+				background: 0;
 			}
 		}
 	}
 	.best {
 		&__item {
-			padding: 24px;
+			padding: 24px 20px;
 		}
 		&__subtitle {
 			font-size: 15px;

@@ -52,6 +52,9 @@
 			flex-shrink: 0;
 			background: url('../img/discount-icon.svg') center / cover no-repeat;
 		}
+		&-mob {
+			display: none;
+		}
 	}
 
 	&__buttons {

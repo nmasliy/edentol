@@ -55,4 +55,12 @@
 		margin-bottom: 15px;
 		color: $text;
 	}
+
+	&__img {
+		display: none;
+		img {
+			max-height: 400px;
+			width: 100%;
+		}
+	}
 }

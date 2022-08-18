@@ -432,7 +432,10 @@ window.addEventListener("DOMContentLoaded", function () {
 			const swiper = new Swiper(parent, {
 				slidesPerView: "auto",
 				spaceBetween: 16,
-				// autoHeight: true
+				pagination: {
+					el: ".swiper-pagination",
+					clickable: true,
+				},
 			});
 		}
 	}
