@@ -327,9 +327,12 @@ window.addEventListener("DOMContentLoaded", function () {
 			});
 		});
 
+		showModal('modal-2')
+
 		$modalsCloseTriggers.forEach((item) => {
 			item.addEventListener("click", (e) => {
 				if (e.target.closest(".modal__close") ||
+					e.target.closest(".modal-thanks__btn") ||
 					(!e.target.closest(".modal__close") &&
 						!e.target.closest(".modal__container")) ) {
 					e.preventDefault();
