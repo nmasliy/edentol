@@ -1232,6 +1232,9 @@
 				&.active {
 					z-index: 7;
 				}
+				.system__element-text {
+					left: 0;
+				}
 			}
 			&--4 {
 				bottom: 18px;
