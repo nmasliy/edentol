@@ -118,6 +118,7 @@
 		}
 		&__btn {
 			margin-left: 0;
+			margin-top: auto;
 		}
 		&__menu {
 			display: none;
@@ -129,11 +130,11 @@
 			top: 12px;
 			bottom: 12px;
 			z-index: 7;
-			background: url("../img/menu-bg.svg") top left no-repeat;
+			background: url("../img/menu-bg-top.svg") top left no-repeat, url("../img/menu-bg-bottom.svg") bottom right no-repeat;
 			background-color: $white;
 			overflow: auto;
 			transition: $menuTransition;
-			padding: 100px 20px;
+			padding: 100px 20px 40px;
 			opacity: 0;
 			border-radius: 25px;
 			&.active {
