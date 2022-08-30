@@ -130,6 +130,21 @@ window.addEventListener("DOMContentLoaded", function () {
 				},
 			},
 		});
+
+		swiper.on('slideChange', function(e) {
+			const activeVariant = swiper.slides[swiper.activeIndex].dataset.variant
+			const $video = document.querySelector('.video__box video');
+
+			const videos = {
+				'1': 'video/cristal.mp4', // cristal
+				'2': 'video/cristal.mp4', // espailer
+				'3': 'video/compact.mp4', // compact
+			}
+
+			if ($video.getAttribute('src')  != videos[activeVariant]) {
+				$video.src = videos[activeVariant]
+			}
+		})
 	}
 
 	function initCoopSlider() {

@@ -98,6 +98,7 @@
 	&__price-row {
 		display: flex;
 		align-items: baseline;
+		gap: 0 11px;
 	}
 
 	&__price-new {
@@ -111,7 +112,6 @@
 		font-size: 20px;
 		text-decoration: line-through;
 		letter-spacing: 0.0015em;
-		margin-left: 11px;
 		color: #93a8db;
 	}
 
