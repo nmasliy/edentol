@@ -63,6 +63,7 @@ window.addEventListener("DOMContentLoaded", function () {
 				var minutes = Math.floor((t / 1000 / 60) % 60);
 				var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
 				var days = Math.floor(t / (1000 * 60 * 60 * 24));
+
 				return {
 					total: t,
 					days: days,
@@ -80,7 +81,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 				function updateClock() {
 					var t = getTimeRemaining(endtime);
-
+					
 					if (t.total <= 0) {
 						clearInterval(timeinterval);
 						var deadline = new Date(
@@ -88,8 +89,9 @@ window.addEventListener("DOMContentLoaded", function () {
 						);
 						initializeClock(deadline);
 					}
-
-					$days.innerHTML = t.days;
+					if (t.days > 0) {
+						$days.innerHTML = t.days;
+					}
 					// $hours.innerHTML = ('0' + t.hours).slice(-2)
 					// $minutes.innerHTML = ('0' + t.minutes).slice(-2)
 					// $seconds.innerHTML = ('0' + t.seconds).slice(-2)
@@ -99,7 +101,8 @@ window.addEventListener("DOMContentLoaded", function () {
 				var timeinterval = setInterval(updateClock, 1000);
 			}
 
-			var deadline = $timer.dataset.date;
+			var deadline = new Date($timer.dataset.date);
+			// var deadline = 'July 30 2022 20:00:00 GMT+0300';
 			initializeClock(deadline);
 		});
 	}
